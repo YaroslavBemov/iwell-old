@@ -1,2 +1,3 @@
-require('./components/Example');
-import '../../sass/app.scss'
+require('./MainLayout');
+import "../../sass/app.scss";
+
