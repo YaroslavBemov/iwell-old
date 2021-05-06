@@ -1,2 +1,12 @@
-require('./components/Example');
-import '../../sass/app.scss'
+import React from "react";
+import ReactDOM from "react-dom";
+import "../../sass/app.scss";
+import App from "./components/App";
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>,
+    rootElement
+);
