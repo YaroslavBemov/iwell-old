@@ -6,9 +6,10 @@
 }
 
 .login {
+    
+    background: #fff;
     width: 409px;
     padding: 50px;
-    border: 1px solid #ccc;
     border-radius: 5px;
     &__title {
         font-family: "IBM Plex Sans";
@@ -24,6 +25,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        & img {
+            margin-right: 40px;
+        }
     }
     &__text {
         font-family: "IBM Plex Sans";
@@ -50,6 +54,7 @@
             font-size: 18px;
             line-height: 24px;
             color: #9eaea4;
+            background: transparent;
         }
         &-btn {
             display: block;

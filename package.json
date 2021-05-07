@@ -25,6 +25,7 @@
         "clean-webpack-plugin": "^4.0.0-alpha.0",
         "cross-env": "^7.0.3",
         "html-webpack-plugin": "^5.3.1",
+        "image-webpack-loader": "^7.0.1",
         "laravel-mix": "^6.0.6",
         "mini-css-extract-plugin": "^1.5.1",
         "optimize-css-assets-webpack-plugin": "^5.0.4",
