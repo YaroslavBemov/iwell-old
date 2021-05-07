@@ -1,22 +1,18 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
 import Router from "./containers/Router";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import Content from "./components/Content";
 
 function MainLayout() {
     return (
-        <Router />
-    );
-}
-
-if (document.getElementById("root")) {
-    ReactDOM.render(
-        <React.StrictMode>
-            <BrowserRouter>
-                <MainLayout />
-            </BrowserRouter>
-        </React.StrictMode>,
-        document.getElementById("root")
+        <div id="app">
+            <Header />
+            <Navbar />
+            <Content>
+                <Router />
+            </Content>
+        </div>
     );
 }
 
