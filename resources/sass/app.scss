@@ -9,11 +9,11 @@ body {
     font-family: sans-serif;
     margin: 0;
     --main-spacing: 80px 120px 120px 120px;
-    --header-spacing: 35px 5px;
-    --aside-spacing: 0 0 0 40px;
+    --header-spacing: 30px 120px;
+    --aside-spacing: 40px;
 }
 
-#app {
+#root {
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -24,12 +24,10 @@ body {
         grid-area: 1 / 1 / 2 / 8;
         background-color: #edecea;
         border-bottom: 5px solid #dee2e0;
-
-        display: flex;
-        justify-content: center;
-        a {
+        > nav > a {
             margin-right: 40px;
-            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
         }
     }
 
@@ -45,6 +43,8 @@ body {
             flex-direction: column;
             a {
                 margin-bottom: 30px;
+                text-decoration: none;
+                color: inherit;
             }
         }
     }
@@ -55,4 +55,20 @@ body {
         background-color: #edecea;
         overflow: auto;
     }
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.mr-30 {
+    margin-right: 30px;
 }
