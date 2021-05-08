@@ -4,7 +4,7 @@
 
 ## React
 
-./resources/react-app/src/app.js - точка входа в реакт.
+./resources/react-app/src/index.js - точка входа в реакт.
 
 ./resources/sass/app.scss - точка входа в стили.
 
