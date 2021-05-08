@@ -1,17 +1,29 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Header";
 import Navbar from "./Navbar";
 import Content from "./Content";
+import Classes from "./Classes";
 
 function App() {
   return (
-    <div id="app">
-      <Header />
-      <Navbar />
-      <Content>
-        Вставляем через Switch -- Route path="/ " компоненты страниц
-      </Content>
-    </div>
+    <React.StrictMode>
+      <Router>
+        <Header />
+        <Navbar />
+        <Content>
+          <Switch>
+            <Route exact path="/" component={Classes}/>
+            {/* <Route path="/subscription" component={Subscription}/>
+            <Route path="/info" component={Info}/>
+            <Route path="/trainings" component={Trainings}/>
+            <Route path="/tariffs" component={Tariffs}/>
+            <Route path="/schedule" component={Schedule}/>
+            <Route exact path="/clients" component={Clients}/> */}
+          </Switch>
+        </Content>
+      </Router>
+    </React.StrictMode>
   );
 }
 
