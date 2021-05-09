@@ -6,7 +6,7 @@
 
 ./resources/react-app/src/index.js - точка входа в реакт.
 
-./resources/sass/app.scss - точка входа в стили.
+./resources/sass/index.scss - точка входа в стили.
 
 ./resources/views/welcome.blade.php - здесь index.php, если запускать локальный сервер на PHP.
 
