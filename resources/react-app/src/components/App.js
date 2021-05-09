@@ -4,6 +4,7 @@ import Header from "./Header";
 import Navbar from "./Navbar";
 import Content from "./Content";
 import Classes from "./Classes";
+import Calendar from "./Calendar";
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         <Navbar />
         <Content>
           <Switch>
-            <Route exact path="/" component={Classes}/>
+            {/* <Route exact path="/" component={Classes}/> */}
+            <Route exact path="/" component={Calendar}/>
             {/* <Route path="/subscription" component={Subscription}/>
             <Route path="/info" component={Info}/>
             <Route path="/trainings" component={Trainings}/>
