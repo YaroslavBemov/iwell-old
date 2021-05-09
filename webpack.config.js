@@ -151,7 +151,7 @@ module.exports = {
     entry: {
         main: [
             // '@babel/polyfill',
-            './resources/react-app/src/app.js'
+            './resources/react-app/src/index.js'
         ]
     },
     output: {
