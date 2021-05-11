@@ -1,0 +1,78 @@
+.login {
+    
+    background: #fff;
+    width: 409px;
+    padding: 50px;
+    border-radius: 5px;
+    &__title {
+        font-family: "IBM Plex Sans";
+        text-align: center;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 48px;
+        letter-spacing: 0.44px;
+        color: #4c4c4c;
+    }
+    &__logo-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__logo-facebook,
+    &__logo-vk {
+        margin-right: 40px;
+    }
+    &__text {
+        font-family: "IBM Plex Sans";
+        font-style: normal;
+        font-weight: 450;
+        font-size: 24px;
+        line-height: 36px;
+        text-align: center;
+        letter-spacing: 0.44px;
+        color: #4c4c4c;
+        margin-top: 72px;
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        width: 406px;
+        margin: 0 auto;
+        &-input {
+            margin: 20px auto 40px;
+            border: none;
+            border-bottom: 1px solid #3e4149;
+            width: 389px;
+            padding: 20px 0;
+            font-size: 18px;
+            line-height: 24px;
+            color: #9eaea4;
+            background: transparent;
+        }
+        &-btn {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            background: rgba(158, 206, 179, 0.3);
+            border: 1px solid #dee2e0;
+            box-sizing: border-box;
+            border-radius: 5px;
+            padding: 13px;
+            font-size: 24px;
+            color: #3e4149;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    &__small-text {
+        font-size: 18px;
+        line-height: 24px;
+        color: #4C4C4C;
+    }
+    &__link {
+
+        color: #7294C7;
+    }
+}
