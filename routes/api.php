@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\Auth\ApiAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,17 @@ use Illuminate\Support\Facades\Route;
 //});
 
 // API
-Route::group(['middleware' => ['cors', 'json.response']], function () {
-    // ...
+Route::group([
+    'middleware' => ['cors', 'json.response'
+    ]], function () {
+    // public routes
+    Route::post('/signin', [ApiAuthController::class, 'signIn'])->name('login.api');
+    Route::post('/register', [ApiAuthController::class, 'register'])->name('register.api');
+
+    // protected routes
+    Route::group([
+        'middleware' => 'auth:api'
+    ], function () {
+        Route::post('/signout', [ApiAuthController::class, 'signOut'])->name('logout.api');
+    });
 });

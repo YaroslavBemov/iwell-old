@@ -20,5 +20,8 @@ class Cors
             ->header('Access-Control-Allow-Origin', '*')
             ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS')
             ->header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, X-Token-Auth, Authorization');
+//        $response->header('Access-Control-Allow-Credentials','true');
+//        $response->header('Accept','application/json');
+//        $response->header('Access-Control-Expose-Headers','location');
     }
 }
