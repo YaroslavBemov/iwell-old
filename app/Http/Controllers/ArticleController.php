@@ -75,9 +75,17 @@ class ArticleController extends Controller
      * @param \App\Models\Article $article
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show($id)
     {
-        //
+        $validator = Validator::make($id, [
+            'id' => 'required|integer',
+        ]);
+
+        if ($validator->fails()) {
+            return response(['errors' => $validator->errors()->all()], 422);
+        }
+//TODO show
+        return response($request->only('id'), 222);
     }
 
     /**
