@@ -15,6 +15,10 @@ class Article extends Model
         'user_id'
     ];
 
+    protected $hidden = [
+        'deleted_at'
+    ];
+
     public function users() {
         return $this->belongsTo(User::class);
     }
