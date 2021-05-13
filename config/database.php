@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Str;
+use Illuminate\Database\DBAL\TimestampType;
 
 return [
 
@@ -56,7 +57,7 @@ return [
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
             'prefix_indexes' => true,
-            'strict' => true,
+            'strict' => false,
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
@@ -142,6 +143,12 @@ return [
             'database' => env('REDIS_CACHE_DB', '1'),
         ],
 
+    ],
+
+    'dbal' => [
+        'types' => [
+            'timestamp' => TimestampType::class,
+        ],
     ],
 
 ];

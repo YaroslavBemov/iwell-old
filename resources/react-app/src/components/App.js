@@ -4,6 +4,7 @@ import Header from "./Header";
 import Navbar from "./Navbar";
 import Content from "./Content";
 import Classes from "./Classes";
+import Login from "./Login";
 import Calendar from "./Calendar";
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
             <Route path="/trainings" component={Trainings}/>
             <Route path="/tariffs" component={Tariffs}/>
             <Route path="/schedule" component={Schedule}/>
-            <Route exact path="/clients" component={Clients}/> */}
+            <Route exact path="/clients" component={Clients}/> 
+            <Route path="/login" component={Login}/>*/}
           </Switch>
         </Content>
       </Router>
