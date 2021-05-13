@@ -22,7 +22,9 @@ const Calendar = () => {
         title,
         start: selectInfo.startStr,
         end: selectInfo.endStr,
-        allDay: selectInfo.allDay
+        allDay: false,
+        //display: "background",
+        url: '/classes',  //event.id
       })
     }
   }
