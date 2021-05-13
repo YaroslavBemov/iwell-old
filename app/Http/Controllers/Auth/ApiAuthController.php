@@ -7,7 +7,7 @@ use App\Http\Requests\Api\RegisterFormRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
+//TODO middleware с проверкой ключа приложения
 class ApiAuthController extends Controller
 {
     public function register(RegisterFormRequest $request)
