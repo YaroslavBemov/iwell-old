@@ -36,8 +36,12 @@ class ApiAuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (auth()->attempt($credentials)) {
+
+            //TODO нужно ли проверять что у юзера есть активные токены?
             $token = auth()->user()->createToken('Laravel Password Grant Client')->accessToken;
             $user = auth()->user();
+
+            //TODO Is it bad way?
             $user->access_token = $token;
 
             return response($user, 200);
