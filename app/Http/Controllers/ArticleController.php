@@ -50,7 +50,23 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->only('title', 'body'), [
+            'title' => 'required|string|max:50',
+            'body' => 'required|string|max:255'
+        ]);
+
+        if ($validator->fails()) {
+            return response(['errors' => $validator->errors()->all()], 422);
+        }
+
+        $userId = $request->user()->id;
+
+        $article = Article::create(array_merge(
+            $request->only('title', 'body'),
+            ['user_id' => $userId]
+        ));
+
+        return response($article, 200);
     }
 
     /**

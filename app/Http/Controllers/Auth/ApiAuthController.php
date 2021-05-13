@@ -24,7 +24,7 @@ class ApiAuthController extends Controller
 
     public function signIn(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $validator = Validator::make($request->only('email', 'password'), [
             'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:6',
         ]);
