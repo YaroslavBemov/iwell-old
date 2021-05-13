@@ -17,22 +17,18 @@ class ApiAuthController extends Controller
             ['password' => bcrypt($request->password)]
         ));
         $token = $user->createToken('Laravel Password Grant Client')->accessToken;
-        //TODO correct response
-        $response = [
-            'token' => $token,
-            $user
-        ];
+        $user->access_token = $token;
 
-        return response($response, 200);
+        return response($user, 200);
     }
 
     public function signIn(Request $request)
     {
-        //TODO validator
         $validator = Validator::make($request->all(), [
             'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:6',
         ]);
+
         if ($validator->fails()) {
             return response(['errors' => $validator->errors()->all()], 422);
         }
@@ -40,14 +36,11 @@ class ApiAuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (auth()->attempt($credentials)) {
-            $token = auth()->user()->createToken('LaravelAuthApp')->accessToken;
+            $token = auth()->user()->createToken('Laravel Password Grant Client')->accessToken;
             $user = auth()->user();
-            //TODO correct response
-            $response = [
-                'token' => $token,
-                $user
-            ];
-            return response($response, 200);
+            $user->access_token = $token;
+
+            return response($user, 200);
         } else {
             return response(['error' => 'Unauthorised'], 401);
         }
@@ -58,6 +51,7 @@ class ApiAuthController extends Controller
         $token = $request->user()->token();
         $token->revoke();
         $response = ['message' => 'You have been successfully logged out!'];
+
         return response($response, 200);
     }
 }
