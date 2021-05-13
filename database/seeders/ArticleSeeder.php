@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Article;
 use Illuminate\Database\Seeder;
+use Laravel\Passport\Bridge\User;
 
 class ArticleSeeder extends Seeder
 {
@@ -13,6 +15,8 @@ class ArticleSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Article::factory()
+            ->count(10)
+            ->create();
     }
 }

@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use App\Models\Article;
 use Illuminate\Database\Eloquent\Factories\Factory;
+//use Laravel\Passport\Bridge\User;
+use App\Models\User;
 
 class ArticleFactory extends Factory
 {
@@ -22,7 +24,9 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->sentence(),
+            'body' => $this->faker->text,
+            'user_id' => User::all()->random()->id
         ];
     }
 }
