@@ -97,9 +97,32 @@ class ArticleController extends Controller
      * @param \App\Models\Article $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->only('title', 'body'), [
+            'title' => 'required|string|max:50',
+            'body' => 'required|string|max:255'
+        ]);
+
+        if ($validator->fails()) {
+            return response(['errors' => $validator->errors()->all()], 422);
+        }
+
+        $article = Article::find($id);
+
+        if (!$article) {
+            return response(['error' => 'Not Found.'], 404);
+        }
+
+        $userId = $request->user()->id;
+
+        if ($userId !== $article->user_id) {
+            return response(['error' => 'Forbidden.'], 403);
+        }
+
+        $article->fill($request->only('title', 'body'))->save();
+
+        return response($article, 200);
     }
 
     /**
@@ -108,7 +131,7 @@ class ArticleController extends Controller
      * @param \App\Models\Article $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy($id)
     {
         //
     }
