@@ -6,7 +6,7 @@ use App\Models\Article;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
+//TODO auto generic API Docs
 class ArticleController extends Controller
 {
     /**
