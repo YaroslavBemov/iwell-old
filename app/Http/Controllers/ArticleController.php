@@ -133,6 +133,28 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $validator = Validator::make(['id' => $id], [
+            'id' => 'required|integer',
+        ]);
+
+        if ($validator->fails()) {
+            return response(['errors' => $validator->errors()->all()], 422);
+        }
+
+        $article = Article::find($id);
+
+        if (!$article) {
+            return response(['error' => 'Not Found.'], 404);
+        }
+
+        $userId = auth()->user()->id;
+
+        if ($userId !== $article->user_id) {
+            return response(['error' => 'Forbidden.'], 403);
+        }
+
+        Article::destroy([$id]);
+
+        return response(['message' => 'Success!'], 200);
     }
 }
