@@ -77,15 +77,17 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        $validator = Validator::make($id, [
+        $validator = Validator::make(['id' => $id], [
             'id' => 'required|integer',
         ]);
 
         if ($validator->fails()) {
             return response(['errors' => $validator->errors()->all()], 422);
         }
-//TODO show
-        return response($request->only('id'), 222);
+
+        $article = Article::find($id);
+
+        return response($article, 222);
     }
 
     /**
