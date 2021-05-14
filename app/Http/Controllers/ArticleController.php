@@ -87,6 +87,10 @@ class ArticleController extends Controller
 
         $article = Article::find($id);
 
+        if (!$article) {
+            return response(['error' => 'Not Found.'], 404);
+        }
+
         return response($article, 222);
     }
 
