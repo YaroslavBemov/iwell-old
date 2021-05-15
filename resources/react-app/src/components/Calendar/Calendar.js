@@ -71,7 +71,7 @@ const Calendar = () => {
         slotMaxTime="23:00:00"
         slotDuration="00:60:00"
         expandRows={true}
-        height="600"
+        height="700"
         buttonText={{ today: "Сегодня" }}
         events={events}
         editable={true}

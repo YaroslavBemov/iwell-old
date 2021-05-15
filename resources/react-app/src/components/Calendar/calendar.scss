@@ -1,23 +1,25 @@
+@import "../../../../sass/variables";
+
 .fc {
     max-width: 1000px;
     margin: 0 auto;
-    color: #4c4c4c;
+    color: $primary-gray;
     .fc-toolbar {
         justify-content: flex-start;
     }
     .fc-toolbar.fc-header-toolbar {
         padding: 20px;
-        background: #dee2e0;
+        background: $light-green;
     }
     .fc-button {
-        background: #edecea;
-        border: 1px solid #9eaea4;
+        background: $primary-white;
+        border: 1px solid $dark-grey;
         box-sizing: border-box;
         border-radius: 5px;
-        color: #9eaea4;
-        font-weight: 450;
-        font-size: 22px;
-        line-height: 36px;
+        color: $dark-grey;
+        font-weight: 400;
+        font-size: $font-size-base;
+        line-height: $line-height-base;
         letter-spacing: 0.44px;
         padding: 5px 11px;
     }
@@ -25,11 +27,11 @@
     .fc-button:hover,
     .fc-button-primary:not(:disabled):active,
     .fc-button-primary:not(:disabled).fc-button-active {
-        background: #edecea;
-        border: 1px solid #9eaea4;
+        background: $primary-white;
+        border: 1px solid $dark-grey;
         box-sizing: border-box;
         border-radius: 5px;
-        color: #9eaea4;
+        color: $dark-grey;
         filter: brightness(102%);
     }
     .fc-button:focus,
@@ -40,20 +42,20 @@
     }
     .fc-toolbar-title {
         margin-left: 20px;
-        font-weight: 450;
-        font-size: 24px;
-        line-height: 36px;
+        font-weight: 400;
+        font-size: $font-size-base;
+        line-height: $line-height-base;
         letter-spacing: 0.44px;
     }
     .fc-col-header-cell-cushion {
         padding: 10px 4px;
         font-weight: normal;
-        font-size: 18px;
-        line-height: 24px;
+        font-size: $font-size-sm;
+        line-height: $line-height-sm;
     }
     .fc-bg-event {
         opacity: 1;
-        background: #dee2e0;
+        background: $light-green;
     }
 }
 
@@ -62,7 +64,7 @@
 }
 
 .fc-v-event {
-    background: #dee2e0;
+    background: $light-green;
     border: none;
     border-radius: unset;
     width: 100%;
@@ -77,11 +79,11 @@
 
 .fc-timegrid-event.fc-event-mirror {
     box-shadow: none;
-    background-color: red;
+    background-color: $orange;
     font-weight: normal;
-    font-size: 16px;
-    line-height: 20px;
-    color: #EDECEA;
+    font-size: $font-size-xs;
+    line-height: $line-height-xs;
+    color: $primary-white;
 }
 
 .button {
@@ -89,16 +91,16 @@
     height: 48px;
     box-sizing: border-box;
     border-radius: 5px;
-    border: 2px solid #3D6950;
+    border: 2px solid $green;
     outline: none;
     font-weight: 500;
-    font-size: 24px;
-    line-height: 36px;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
     display: flex;
     align-items: center;
     justify-content: center;
     letter-spacing: 0.44px;
-    color: #3D6950;
+    color: $green;
 }
 
 .button:hover {
