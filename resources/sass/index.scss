@@ -17,12 +17,12 @@ body {
 #root {
     height: 100vh;
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     grid-template-rows: auto 1fr;
 
     > header {
         padding: var(--header-spacing);
-        grid-area: 1 / 1 / 2 / 8;
+        grid-area: 1 / 1 / 2 / 10;
         background-color: #edecea;
         border-bottom: 5px solid #dee2e0;
         > nav > a {
@@ -51,7 +51,7 @@ body {
     }
 
     > main {
-        grid-area: 2 / 3 / 3 / 8;
+        grid-area: 2 / 3 / 3 / 10;
         padding: var(--main-spacing);
         background-color: #edecea;
         overflow: auto;
@@ -62,12 +62,20 @@ body {
     display: flex;
 }
 
+.justify-end {
+    justify-content: flex-end;
+}
+
 .justify-between {
     justify-content: space-between;
 }
 
 .items-center {
     align-items: center;
+}
+
+.mt-40 {
+    margin-top: 40px;
 }
 
 .mr-30 {
