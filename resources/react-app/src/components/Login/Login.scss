@@ -1,9 +1,29 @@
+.open {
+    display: block;
+}
+
+.close {
+    height: 0;
+    display: none;
+}
 .login {
-    
+    position: fixed;
+    top: 40px;
+    right: 40px;
     background: #fff;
     width: 409px;
     padding: 50px;
     border-radius: 5px;
+    &__close-btn {
+        float: right;
+        margin-top: -27px;
+        margin-right: -27px;
+        font-size: 52px;
+        color: #ccc;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+    }
     &__title {
         font-family: "IBM Plex Sans";
         text-align: center;
@@ -34,45 +54,38 @@
         color: #4c4c4c;
         margin-top: 72px;
     }
-    &__form {
-        display: flex;
-        flex-direction: column;
-        width: 406px;
+    &__form-input {
+        margin: 20px auto 40px;
+        border: none;
+        border-bottom: 1px solid #3e4149;
+        width: 389px;
+        padding: 20px 0;
+        font-size: 18px;
+        line-height: 24px;
+        color: #9eaea4;
+        background: transparent;
+    }
+    &__form-btn {
+        display: block;
         margin: 0 auto;
-        &-input {
-            margin: 20px auto 40px;
-            border: none;
-            border-bottom: 1px solid #3e4149;
-            width: 389px;
-            padding: 20px 0;
-            font-size: 18px;
-            line-height: 24px;
-            color: #9eaea4;
-            background: transparent;
-        }
-        &-btn {
-            display: block;
-            margin: 0 auto;
-            width: 100%;
-            background: rgba(158, 206, 179, 0.3);
-            border: 1px solid #dee2e0;
-            box-sizing: border-box;
-            border-radius: 5px;
-            padding: 13px;
-            font-size: 24px;
-            color: #3e4149;
-            &:hover {
-                cursor: pointer;
-            }
+        width: 100%;
+        background: rgba(158, 206, 179, 0.3);
+        border: 1px solid #dee2e0;
+        box-sizing: border-box;
+        border-radius: 5px;
+        padding: 13px;
+        font-size: 24px;
+        color: #3e4149;
+        &:hover {
+            cursor: pointer;
         }
     }
     &__small-text {
         font-size: 18px;
         line-height: 24px;
-        color: #4C4C4C;
+        color: #4c4c4c;
     }
     &__link {
-
-        color: #7294C7;
+        color: #7294c7;
     }
 }

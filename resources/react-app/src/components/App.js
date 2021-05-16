@@ -4,13 +4,14 @@ import Header from "./Header";
 import Navbar from "./Navbar";
 import Content from "./Content";
 import Classes from "./Classes";
-import Login from "./Login";
+import HeaderWithJoin from "./HeaderWithJoin/HeaderWithJoin";
 
 function App() {
   return (
     <React.StrictMode>
       <Router>
-        <Header />
+        {/* <Header /> */}
+        <HeaderWithJoin />
         <Navbar />
         <Content>
           <Switch>
@@ -20,8 +21,7 @@ function App() {
             <Route path="/trainings" component={Trainings}/>
             <Route path="/tariffs" component={Tariffs}/>
             <Route path="/schedule" component={Schedule}/>
-            <Route exact path="/clients" component={Clients}/> 
-            <Route path="/login" component={Login}/>*/}
+            <Route exact path="/clients" component={Clients}/>  */}
           </Switch>
         </Content>
       </Router>
