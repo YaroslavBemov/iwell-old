@@ -1,5 +1,9 @@
 @import "../../../../sass/variables";
 
+.calendar {
+    margin-bottom: -50px;
+}
+
 .fc {
     max-width: 1000px;
     margin: 0 auto;
@@ -47,11 +51,14 @@
         line-height: $line-height-base;
         letter-spacing: 0.44px;
     }
-    .fc-col-header-cell-cushion {
-        padding: 10px 4px;
-        font-weight: normal;
+    .fc-col-header-cell-cushion,
+    .fc-timegrid-slot-label-cushion {
+        font-weight: 300;
         font-size: $font-size-sm;
         line-height: $line-height-sm;
+    }
+    .fc-col-header-cell-cushion {
+        padding: 10px 4px;
     }
     .fc-bg-event {
         opacity: 1;
@@ -68,19 +75,19 @@
     border: none;
     border-radius: unset;
     width: 100%;
-    .fc-event-main>b {
-        font-weight: normal;
-    }
+    font-weight: 300;
 }
 
-.fc-timegrid-event .fc-event-main {
-    padding: 7px 2px;
+.fc-event-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .fc-timegrid-event.fc-event-mirror {
     box-shadow: none;
     background-color: $orange;
-    font-weight: normal;
+    font-weight: 300;
     font-size: $font-size-xs;
     line-height: $line-height-xs;
     color: $primary-white;
@@ -106,4 +113,18 @@
 .button:hover {
     filter: brightness(102%);
     cursor: pointer;
+}
+
+.dark-grey-text {
+    font-weight: 300;
+    font-size: $font-size-sm;
+    line-height: $line-height-sm;
+    color: $dark-grey;
+}
+
+.visible {
+    visibility: visible;
+}
+.invisible {
+    visibility: hidden;
 }

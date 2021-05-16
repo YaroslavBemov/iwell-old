@@ -5,13 +5,13 @@ export const INITIAL_EVENTS = [
   {
     id: createEventId(),
     title: 'All-day event',
-    start: todayStr + 'T17:00:00',
+    start: '2021-05-20T12:00:00Z',
     display: "background",
   },
   {
     id: createEventId(),
     title: 'Timed event',
-    start: todayStr + 'T12:00:00',
+    start: '2021-05-18T15:00:00Z',
     display: "background",
   }
 ]

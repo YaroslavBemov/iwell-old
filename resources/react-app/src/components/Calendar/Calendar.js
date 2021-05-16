@@ -1,25 +1,30 @@
 import React, { useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import timeGridPlugin from "@fullcalendar/timegrid";
-import interactionPlugin from '@fullcalendar/interaction'
+import interactionPlugin from "@fullcalendar/interaction";
 import "./calendar.scss";
-
-import { INITIAL_EVENTS, createEventId } from './event-utils'
+import { INITIAL_EVENTS, createEventId } from "./event-utils";
 
 const Calendar = () => {
 
-  const [currentEvents, setCurrentEvents] = useState([]);
+  const [currentEvents, setCurrentEvents] = useState(INITIAL_EVENTS);
+  const [activeButton, setActiveButton] = useState(false);
+  const [currentTime, setCurrentTime] = useState(currentTime);
 
   const handleDateSelect = (selectInfo) => {
-    //let title = prompt('Please enter a new title for your event')
     let calendarApi = selectInfo.view.calendar
     console.log(calendarApi)
-    
-    //calendarApi.unselect() // clear date selection
 
+    setCurrentTime(selectInfo.startStr);
+    currentTime === selectInfo.startStr ? setActiveButton(!activeButton) : setActiveButton(true);
 
-    if (calendarApi) {
+    let currentEventTime = currentEvents.map((item) => item.start);
+    //console.log(currentEventTime.includes(currentTime));
+
+    if (currentEventTime.includes(currentTime)) {
       console.log("+++")
+      calendarApi.unselect()
+
       // calendarApi.addEvent({
       //   id: createEventId(),
       //   title,
@@ -35,8 +40,7 @@ const Calendar = () => {
   const renderEventContent = (eventInfo) => {
     return (
       <>
-        <b>{eventInfo.timeText}</b>
-        <i>{eventInfo.event.title}</i>
+        <span>{eventInfo.timeText}</span>
       </>
     )
   }
@@ -53,18 +57,14 @@ const Calendar = () => {
   //   setCurrentEvents(newEvent);
   // }
 
-  let events = [
-    { title: "event 1", date: "2021-05-13T17:00:00", display: "background" },
-    { title: "event 2", date: "2021-05-12T15:00:00", display: "background" },
-  ];
-
   return (
-    <div>
+    <div className="calendar">
       <FullCalendar
         plugins={[ timeGridPlugin, interactionPlugin ]}
         initialView="timeGridWeek"
         headerToolbar={{ start: "today prev,next", center: "title", end: "" }}
         locale="ru"
+        timeZone="UTC"
         firstDay="1"
         allDaySlot={false}
         slotMinTime="09:00:00"
@@ -73,21 +73,19 @@ const Calendar = () => {
         expandRows={true}
         height="700"
         buttonText={{ today: "Сегодня" }}
-        events={events}
         editable={true}
         selectable={true}
         selectMirror={true}
         dayMaxEvents={true}
         initialEvents={INITIAL_EVENTS} // alternatively, use the `events` setting to fetch from a feed
         select={handleDateSelect}
-        eventContent={renderEventContent} // custom render function
+        eventContent={renderEventContent}
         eventClick={handleEventClick}
         //eventsSet={handleEvents} // called after events are initialized/added/changed/removed
-
-      
+    
       />
-      <div className="flex justify-end mt-40">
-        <span>Не больше 1 заказа</span>
+      <div className={`${activeButton ? "visible" : "invisible"} flex justify-between items-center mt-40`}>
+        <span className="dark-grey-text">Не больше 1 заказа</span>
         <button className="button">Продолжить</button>
       </div>
     </div>
