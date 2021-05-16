@@ -15,8 +15,8 @@ function App() {
         <Navbar />
         <Content>
           <Switch>
-            <Route exact path="/classes" component={Classes}/>
-            <Route exact path="/" component={Calendar}/>
+            <Route exact path="/" component={Classes}/>
+            <Route exact path="/calendar" component={Calendar}/>
             {/* <Route path="/subscription" component={Subscription}/>
             <Route path="/info" component={Info}/>
             <Route path="/trainings" component={Trainings}/>
