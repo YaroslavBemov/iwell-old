@@ -16,13 +16,13 @@ const Navbar = () => {
         <Link to="/schedule" onClick={toggleVisibility}>
           Мое расписание
         </Link>
-        {visible ? (
+        {visible && (
           <div className="flex flex-col ml-40">
             <Link to="/active">Активное</Link>
             <Link to="/notactive">Неактивное</Link>
             <Link to="/calendar">Календарь</Link>
           </div>
-        ) : null}
+        )}
         <Link to="/info">Информация</Link>
       </nav>
     </aside>

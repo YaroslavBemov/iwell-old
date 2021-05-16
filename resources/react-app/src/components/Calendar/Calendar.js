@@ -59,6 +59,8 @@ const Calendar = () => {
 
   return (
     <div className="calendar">
+      <h1>Календарь</h1>
+      <p>Выберите свободное время</p>
       <FullCalendar
         plugins={[ timeGridPlugin, interactionPlugin ]}
         initialView="timeGridWeek"

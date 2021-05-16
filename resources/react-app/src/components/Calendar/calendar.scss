@@ -2,6 +2,16 @@
 
 .calendar {
     margin-bottom: -50px;
+    h1 {
+        margin: 0;
+        font-size: $font-size-lg;
+        line-height: $line-height-lg;
+    }
+    p {
+        margin: 30px 0;
+        font-size: $font-size-base;
+        line-height: $line-height-base;
+    }
 }
 
 .fc {
