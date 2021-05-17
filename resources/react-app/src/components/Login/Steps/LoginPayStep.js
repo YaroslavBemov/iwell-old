@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-const LoginPayStep = ({ currentStep, username, email, phone, handleChange }) => {
+const LoginPayStep = ({ children, currentStep, username, email, phone, handleChange }) => {
     if (currentStep !== 3) {
         return null;
     };
@@ -31,7 +31,7 @@ const LoginPayStep = ({ currentStep, username, email, phone, handleChange }) => 
                 value={phone}
                 onChange={handleChange}
             />
-            <button className="login__form-btn">Оплатить</button>
+            { children }
             <p className="login__small-text">
                 Продолжая, Вы соглашаетесь с{" "}
                 <Link className="login__link" to="/conditions">

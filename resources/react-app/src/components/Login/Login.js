@@ -14,7 +14,7 @@ const Login = ({ isOpened, closeLogin }) => {
         phone: "",
     });
 
-    console.log(formState);
+    // console.log(formState);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -27,7 +27,17 @@ const Login = ({ isOpened, closeLogin }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const { username, email, password, phone } = formState;
-      };
+        console.log(formState);
+    };
+
+    const _next = () => {
+        let currentStep = formState.currentStep;
+        currentStep = currentStep >= 2 ? 3 : currentStep + 1;
+        setFormState({
+            ...formState,
+            currentStep: currentStep,
+        });
+    };
 
     return (
         <div className={`login ${isOpened ? "open" : "close"}`}>
@@ -39,19 +49,27 @@ const Login = ({ isOpened, closeLogin }) => {
                     currentStep={formState.currentStep}
                     handleChange={handleChange}
                     email={formState.email}
-                />
+                >
+                    <button className="login__form-btn" onClick={_next}>
+                        Продолжить
+                    </button>
+                </LoginEmailStep>
                 <LoginPasswordStep
                     currentStep={formState.currentStep}
                     handleChange={handleChange}
                     password={formState.password}
-                />
+                >
+                    <button className="login__form-btn" onClick={_next}>Войти</button>
+                </LoginPasswordStep>
                 <LoginPayStep
                     currentStep={formState.currentStep}
                     handleChange={handleChange}
                     username={formState.username}
                     email={formState.email}
                     phone={formState.phone}
-                />
+                >
+                    <button className="login__form-btn">Оплатить</button>
+                </LoginPayStep>
             </form>
         </div>
     );

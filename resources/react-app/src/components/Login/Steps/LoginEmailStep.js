@@ -4,7 +4,7 @@ import FacebookIcon from "../icons/FacebookIcon";
 import GoogleIcon from "../icons/GoogleIcon";
 import VkIcon from "../icons/VkIcon";
 
-const LoginEmailStep = ({ currentStep, email, handleChange }) => {
+const LoginEmailStep = ({ currentStep, email, handleChange, children }) => {
     if (currentStep !== 1) {
         return null;
     }
@@ -43,7 +43,7 @@ const LoginEmailStep = ({ currentStep, email, handleChange }) => {
                 value={email}
                 onChange={handleChange}
             />
-            <button className="login__form-btn">Продолжить</button>
+            { children }
             <p className="login__small-text">
                 Продолжая, Вы соглашаетесь с{" "}
                 <Link className="login__link" to="/conditions">

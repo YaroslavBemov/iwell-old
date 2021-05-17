@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import UserLightIcon from "../../../assets/icons/UserLightIcon";
 
-const LoginPasswordStep = ({ currentStep, password, handleChange }) => {
+const LoginPasswordStep = ({ children, currentStep, password, handleChange }) => {
     if (currentStep !== 2) {
         return null;
     }
@@ -25,7 +25,7 @@ const LoginPasswordStep = ({ currentStep, password, handleChange }) => {
             >
                 Забыли пароль?
             </Link>
-            <button className="login__form-btn">Войти</button>
+            { children }
         </>
     );
 };
