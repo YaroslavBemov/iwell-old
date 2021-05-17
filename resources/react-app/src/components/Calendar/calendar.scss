@@ -118,11 +118,10 @@
     justify-content: center;
     letter-spacing: 0.44px;
     color: $green;
-}
-
-.button:hover {
+    &:hover {
     filter: brightness(102%);
     cursor: pointer;
+    }
 }
 
 .dark-grey-text {
