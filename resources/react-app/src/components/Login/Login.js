@@ -1,17 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "./Login.scss";
-import FacebookIcon from "./icons/FacebookIcon";
-import VkIcon from "./icons/VkIcon";
-import GoogleIcon from "./icons/GoogleIcon";
 import CloseButton from "./icons/CloseButton";
+import LoginEmailStep from "./Steps/LoginEmailStep";
 
 const Login = ({ isOpened, closeLogin }) => {
     const handleSubmit = () => {
         e.preventDefault();
     };
-
-    const nextStep = () => {};
 
     return (
         <div className={`login ${isOpened ? "open" : "close"}`}>
@@ -19,7 +14,8 @@ const Login = ({ isOpened, closeLogin }) => {
                 <CloseButton />
             </button>
             <form className="login__wrapper" onSubmit={handleSubmit}>
-                <h1 className="login__title">Вход / регистрация</h1>
+                <LoginEmailStep />
+                {/* <h1 className="login__title">Вход / регистрация</h1>
                 <div className="login__logo-wrapper">
                     <a
                         className="login__logo-facebook"
@@ -49,7 +45,7 @@ const Login = ({ isOpened, closeLogin }) => {
                     type="email"
                     placeholder="Введите свой E-mail"
                 />
-                <button className="login__form-btn" onClick={nextStep}>
+                <button className="login__form-btn">
                     Продолжить
                 </button>
                 <p className="login__small-text">
@@ -61,7 +57,7 @@ const Login = ({ isOpened, closeLogin }) => {
                     <Link className="login__link" to="/privacy_policy">
                         Политикой конфиденциальности
                     </Link>
-                </p>
+                </p> */}
             </form>
         </div>
     );
