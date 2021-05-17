@@ -2,11 +2,32 @@ import React, { useState } from "react";
 import "./Login.scss";
 import CloseButton from "./icons/CloseButton";
 import LoginEmailStep from "./Steps/LoginEmailStep";
+import LoginPasswordStep from "./Steps/LoginPasswordStep";
+import LoginPayStep from "./Steps/LoginPayStep";
 
 const Login = ({ isOpened, closeLogin }) => {
-    const handleSubmit = () => {
-        e.preventDefault();
+    const [formState, setFormState] = useState({
+        currentStep: 1,
+        username: "",
+        email: "",
+        password: "",
+        phone: "",
+    });
+
+    console.log(formState);
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormState({
+            ...formState,
+            [name]: value,
+        });
     };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const { username, email, password, phone } = formState;
+      };
 
     return (
         <div className={`login ${isOpened ? "open" : "close"}`}>
@@ -14,50 +35,23 @@ const Login = ({ isOpened, closeLogin }) => {
                 <CloseButton />
             </button>
             <form className="login__wrapper" onSubmit={handleSubmit}>
-                <LoginEmailStep />
-                {/* <h1 className="login__title">Вход / регистрация</h1>
-                <div className="login__logo-wrapper">
-                    <a
-                        className="login__logo-facebook"
-                        href="https://www.facebook.com/"
-                        target="_blanc"
-                    >
-                        <FacebookIcon />
-                    </a>
-                    <a
-                        className="login__logo-vk"
-                        href="https://vk.com/"
-                        target="_blanc"
-                    >
-                        <VkIcon />
-                    </a>
-                    <a
-                        className="login__logo-google"
-                        href="https://google.com/"
-                        target="_blanc"
-                    >
-                        <GoogleIcon />
-                    </a>
-                </div>
-                <p className="login__text">или</p>
-                <input
-                    className="login__form-input"
-                    type="email"
-                    placeholder="Введите свой E-mail"
+                <LoginEmailStep
+                    currentStep={formState.currentStep}
+                    handleChange={handleChange}
+                    email={formState.email}
                 />
-                <button className="login__form-btn">
-                    Продолжить
-                </button>
-                <p className="login__small-text">
-                    Продолжая, Вы соглашаетесь с{" "}
-                    <Link className="login__link" to="/conditions">
-                        Условиями
-                    </Link>{" "}
-                    и{" "}
-                    <Link className="login__link" to="/privacy_policy">
-                        Политикой конфиденциальности
-                    </Link>
-                </p> */}
+                <LoginPasswordStep
+                    currentStep={formState.currentStep}
+                    handleChange={handleChange}
+                    password={formState.password}
+                />
+                <LoginPayStep
+                    currentStep={formState.currentStep}
+                    handleChange={handleChange}
+                    username={formState.username}
+                    email={formState.email}
+                    phone={formState.phone}
+                />
             </form>
         </div>
     );

@@ -4,7 +4,11 @@ import FacebookIcon from "../icons/FacebookIcon";
 import GoogleIcon from "../icons/GoogleIcon";
 import VkIcon from "../icons/VkIcon";
 
-const LoginEmailStep = () => {
+const LoginEmailStep = ({ currentStep, email, handleChange }) => {
+    if (currentStep !== 1) {
+        return null;
+    }
+
     return (
         <>
             <h1 className="login__title">Вход / регистрация</h1>
@@ -36,6 +40,8 @@ const LoginEmailStep = () => {
                 className="login__form-input"
                 type="email"
                 placeholder="Введите свой E-mail"
+                value={email}
+                onChange={handleChange}
             />
             <button className="login__form-btn">Продолжить</button>
             <p className="login__small-text">
