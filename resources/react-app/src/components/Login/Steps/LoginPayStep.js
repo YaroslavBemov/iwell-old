@@ -11,6 +11,7 @@ const LoginPayStep = ({ children, currentStep, username, email, phone, handleCha
             <h1 className="login__title-pay">Bronze</h1>
             <p className="login__text-pay">Заполните все поля</p>
             <input
+                name="username"
                 className="login__form-input"
                 type="text"
                 placeholder="Имя"
@@ -18,6 +19,7 @@ const LoginPayStep = ({ children, currentStep, username, email, phone, handleCha
                 onChange={handleChange}
             />
             <input
+                name="email"
                 className="login__form-input"
                 type="email"
                 placeholder="E-mail"
@@ -25,6 +27,7 @@ const LoginPayStep = ({ children, currentStep, username, email, phone, handleCha
                 onChange={handleChange}
             />
             <input
+                name="phone"
                 className="login__form-input"
                 type="phone"
                 placeholder="Телефон"

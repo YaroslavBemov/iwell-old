@@ -14,8 +14,6 @@ const Login = ({ isOpened, closeLogin }) => {
         phone: "",
     });
 
-    // console.log(formState);
-
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormState({
@@ -26,7 +24,6 @@ const Login = ({ isOpened, closeLogin }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const { username, email, password, phone } = formState;
         console.log(formState);
     };
 

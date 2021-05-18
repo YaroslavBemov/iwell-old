@@ -13,6 +13,7 @@ const LoginPasswordStep = ({ children, currentStep, password, handleChange }) =>
             <UserLightIcon className="login__user-icon" />
             <p className="login__text">polsovatel@yandex.ru</p>
             <input
+                name="password"
                 className="login__form-input"
                 type="password"
                 placeholder="Введите пароль"

@@ -37,13 +37,14 @@ const LoginEmailStep = ({ currentStep, email, handleChange, children }) => {
             </div>
             <p className="login__text">или</p>
             <input
+                name="email"
                 className="login__form-input"
                 type="email"
                 placeholder="Введите свой E-mail"
                 value={email}
                 onChange={handleChange}
             />
-            { children }
+            {children}
             <p className="login__small-text">
                 Продолжая, Вы соглашаетесь с{" "}
                 <Link className="login__link" to="/conditions">
