@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Header";
+import HeaderWithJoin from "./HeaderWithJoin/HeaderWithJoin";
 import Navbar from "./Navbar";
 import Content from "./Content";
 import Classes from "./Classes";
-import HeaderWithJoin from "./HeaderWithJoin/HeaderWithJoin";
 import Login from "./Login";
 import Calendar from "./Calendar";
 
@@ -12,8 +12,8 @@ function App() {
   return (
     <React.StrictMode>
       <Router>
-        {/* <Header /> */}
-        <HeaderWithJoin />
+        <Header />
+        {/* <HeaderWithJoin /> */}
         <Navbar />
         <Content>
           <Switch>
