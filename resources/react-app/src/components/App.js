@@ -5,6 +5,8 @@ import Navbar from "./Navbar";
 import Content from "./Content";
 import Classes from "./Classes";
 import HeaderWithJoin from "./HeaderWithJoin/HeaderWithJoin";
+import Login from "./Login";
+import Calendar from "./Calendar";
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
         <Content>
           <Switch>
             <Route exact path="/" component={Classes}/>
+            <Route exact path="/calendar" component={Calendar}/>
             {/* <Route path="/subscription" component={Subscription}/>
             <Route path="/info" component={Info}/>
             <Route path="/trainings" component={Trainings}/>
