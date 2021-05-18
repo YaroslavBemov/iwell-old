@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import FullCalendar from "@fullcalendar/react";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
@@ -57,9 +58,11 @@ const Calendar = () => {
   //   setCurrentEvents(newEvent);
   // }
 
+  const title = "Календарь";
+
   return (
     <div className="calendar">
-      <h1>Календарь</h1>
+      <h1>{title}</h1>
       <p>Выберите свободное время</p>
       <FullCalendar
         plugins={[ timeGridPlugin, interactionPlugin ]}
@@ -88,7 +91,9 @@ const Calendar = () => {
       />
       <div className={`${activeButton ? "visible" : "invisible"} flex justify-between items-center mt-40`}>
         <span className="dark-grey-text">Не больше 1 заказа</span>
-        <button className="button">Продолжить</button>
+        <Link to="/choice" onClick={title}>
+          <button className="button">Продолжить</button>
+        </Link>
       </div>
     </div>
   );
