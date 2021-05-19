@@ -10,18 +10,20 @@ const LoginPasswordStep = ({ children, currentStep, password, handleChange }) =>
     return (
         <>
             <h1 className="login__title">Добро пожаловать</h1>
-            <UserLightIcon className="login__user-icon" />
-            <p className="login__text">polsovatel@yandex.ru</p>
+            <div className="mt-40">
+                <UserLightIcon />
+            </div>
+            <p className="login__text mt-20">polsovatel@yandex.ru</p>
             <input
                 name="password"
-                className="login__form-input"
+                className="login__form-input mt-20"
                 type="password"
                 placeholder="Введите пароль"
                 value={password}
                 onChange={handleChange}
             />
             <Link
-                className="login__small-text login__link-fogot_password"
+                className="login__small-text login__link-fogot_password mt-70"
                 to="/fogot_password"
             >
                 Забыли пароль?

@@ -71,6 +71,10 @@ body {
     }
 }
 
+p {
+    margin: 0;
+}
+
 .flex {
     display: flex;
 }
@@ -87,8 +91,20 @@ body {
 .ml-40 {
     margin-left: 40px;
 }
+.mt-10 {
+    margin-top: 10px;
+}
+.mt-20 {
+    margin-top: 20px;
+}
 .mt-40 {
     margin-top: 40px;
+}
+.mt-50 {
+    margin-top: 50px;
+}
+.mt-70 {
+    margin-top: 70px;
 }
 .mr-30 {
     margin-right: 30px;

@@ -9,10 +9,10 @@ const LoginPayStep = ({ children, currentStep, username, email, phone, handleCha
     return ( 
         <>
             <h1 className="login__title-pay">Bronze</h1>
-            <p className="login__text-pay">Заполните все поля</p>
+            <p className="login__text-pay mt-20">Заполните все поля</p>
             <input
                 name="username"
-                className="login__form-input"
+                className="login__form-input mt-40"
                 type="text"
                 placeholder="Имя"
                 value={username}
@@ -20,7 +20,7 @@ const LoginPayStep = ({ children, currentStep, username, email, phone, handleCha
             />
             <input
                 name="email"
-                className="login__form-input"
+                className="login__form-input mt-10"
                 type="email"
                 placeholder="E-mail"
                 value={email}
@@ -28,14 +28,14 @@ const LoginPayStep = ({ children, currentStep, username, email, phone, handleCha
             />
             <input
                 name="phone"
-                className="login__form-input"
+                className="login__form-input mt-10"
                 type="phone"
                 placeholder="Телефон"
                 value={phone}
                 onChange={handleChange}
             />
             { children }
-            <p className="login__small-text">
+            <p className="login__small-text mt-20">
                 Продолжая, Вы соглашаетесь с{" "}
                 <Link className="login__link" to="/conditions">
                     Условиями

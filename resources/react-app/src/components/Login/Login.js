@@ -47,7 +47,7 @@ const Login = ({ isOpened, closeLogin }) => {
                     handleChange={handleChange}
                     email={formState.email}
                 >
-                    <button className="login__form-btn" onClick={nextStep}>
+                    <button className="login__form-btn mt-40" onClick={nextStep}>
                         Продолжить
                     </button>
                 </LoginEmailStep>
@@ -56,7 +56,7 @@ const Login = ({ isOpened, closeLogin }) => {
                     handleChange={handleChange}
                     password={formState.password}
                 >
-                    <button className="login__form-btn" onClick={nextStep}>Войти</button>
+                    <button className="login__form-btn mt-50" onClick={nextStep}>Войти</button>
                 </LoginPasswordStep>
                 <LoginPayStep
                     currentStep={formState.currentStep}
@@ -65,7 +65,7 @@ const Login = ({ isOpened, closeLogin }) => {
                     email={formState.email}
                     phone={formState.phone}
                 >
-                    <button className="login__form-btn">Оплатить</button>
+                    <button className="login__form-btn mt-50">Оплатить</button>
                 </LoginPayStep>
             </form>
         </div>

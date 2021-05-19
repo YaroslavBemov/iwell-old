@@ -12,7 +12,7 @@ const LoginEmailStep = ({ currentStep, email, handleChange, children }) => {
     return (
         <>
             <h1 className="login__title">Вход / регистрация</h1>
-            <div className="login__logo-wrapper">
+            <div className="login__logo-wrapper mt-70">
                 <a
                     className="login__logo-facebook"
                     href="https://www.facebook.com/"
@@ -35,17 +35,17 @@ const LoginEmailStep = ({ currentStep, email, handleChange, children }) => {
                     <GoogleIcon />
                 </a>
             </div>
-            <p className="login__text">или</p>
+            <p className="login__text mt-70">или</p>
             <input
                 name="email"
-                className="login__form-input"
+                className="login__form-input mt-20"
                 type="email"
                 placeholder="Введите свой E-mail"
                 value={email}
                 onChange={handleChange}
             />
             {children}
-            <p className="login__small-text">
+            <p className="login__small-text mt-20">
                 Продолжая, Вы соглашаетесь с{" "}
                 <Link className="login__link" to="/conditions">
                     Условиями
