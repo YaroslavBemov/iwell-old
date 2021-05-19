@@ -27,7 +27,7 @@ const Login = ({ isOpened, closeLogin }) => {
         console.log(formState);
     };
 
-    const _next = () => {
+    const nextStep = () => {
         let currentStep = formState.currentStep;
         currentStep = currentStep >= 2 ? 3 : currentStep + 1;
         setFormState({
@@ -47,7 +47,7 @@ const Login = ({ isOpened, closeLogin }) => {
                     handleChange={handleChange}
                     email={formState.email}
                 >
-                    <button className="login__form-btn" onClick={_next}>
+                    <button className="login__form-btn" onClick={nextStep}>
                         Продолжить
                     </button>
                 </LoginEmailStep>
@@ -56,7 +56,7 @@ const Login = ({ isOpened, closeLogin }) => {
                     handleChange={handleChange}
                     password={formState.password}
                 >
-                    <button className="login__form-btn" onClick={_next}>Войти</button>
+                    <button className="login__form-btn" onClick={nextStep}>Войти</button>
                 </LoginPasswordStep>
                 <LoginPayStep
                     currentStep={formState.currentStep}

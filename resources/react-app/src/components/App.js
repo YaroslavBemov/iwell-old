@@ -1,11 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Header";
-import HeaderWithJoin from "./HeaderWithJoin/HeaderWithJoin";
 import Navbar from "./Navbar";
 import Content from "./Content";
 import Classes from "./Classes";
-import Login from "./Login";
 import Calendar from "./Calendar";
 
 function App() {
@@ -13,7 +11,6 @@ function App() {
     <React.StrictMode>
       <Router>
         <Header />
-        {/* <HeaderWithJoin /> */}
         <Navbar />
         <Content>
           <Switch>

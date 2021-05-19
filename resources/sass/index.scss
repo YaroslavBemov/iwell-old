@@ -33,6 +33,12 @@ body {
             font-size: $font-size-xs;
             line-height: $line-height-xs;
             letter-spacing: 0.44px;
+            
+        }
+        > div > button:first-child {
+            border: none;
+            background: transparent;
+            cursor: pointer;
         }
     }
 
