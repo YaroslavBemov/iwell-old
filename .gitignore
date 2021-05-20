@@ -14,3 +14,4 @@ yarn-error.log
 .idea/
 /resources/react-app/dist/
 .rnd
+.DS_Store
