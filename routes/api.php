@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Auth\ApiAuthController;
 use \App\Http\Controllers\ArticleController;
+use \App\Http\Controllers\CoachController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,10 @@ Route::group([
             Route::patch('/{id}', [ArticleController::class, 'update'])->name('update');
             Route::delete('/{id}', [ArticleController::class, 'destroy'])->name('destroy');
         });
+
+        // Coach
+        Route::resources(['coaches' => CoachController::class]);
+        
     });
 
 
