@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use \App\Models\User;
+use \App\Models\Coach;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +20,10 @@ class DatabaseSeeder extends Seeder
              ->count(10)
              ->hasArticles(2)
              ->create();
+
+        Coach::factory()
+            ->count(5)
+            ->create();
+        
     }
 }
