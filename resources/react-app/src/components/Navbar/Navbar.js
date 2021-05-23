@@ -13,7 +13,7 @@ const Navbar = () => {
       <nav>
         <Link to="/">Мои занятия</Link>
         <Link to="/subscription">Мой абонемент</Link>
-        <Link to="/schedule" onClick={toggleVisibility}>
+        <Link to="/active" onClick={toggleVisibility}>
           Мое расписание
         </Link>
         {visible && (

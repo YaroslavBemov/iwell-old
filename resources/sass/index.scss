@@ -17,12 +17,12 @@ body {
 #root {
     height: 100vh;
     display: grid;
-    grid-template-columns: repeat(9, 1fr);
+    grid-template-columns: 400px 1fr;
     grid-template-rows: 90px 1fr;
 
     > header {
         padding: var(--header-spacing);
-        grid-area: 1 / 1 / 2 / 10;
+        grid-area: 1 / 1 / 2 / 3;
         background-color: $primary-white;
         border-bottom: 5px solid $light-green;
         > nav > a {
@@ -37,7 +37,7 @@ body {
     }
 
     > aside {
-        grid-area: 2 / 1 / 3 / 3;
+        grid-area: 2 / 1 / 3 / 2;
         padding: var(--aside-spacing);
         background-color: $light-green;
         display: flex;
@@ -58,7 +58,7 @@ body {
     }
 
     > main {
-        grid-area: 2 / 3 / 3 / 10;
+        grid-area: 2 / 2 / 3 / 3;
         padding: var(--main-spacing);
         background-color: $primary-white;
         overflow: auto;
@@ -70,6 +70,9 @@ body {
 }
 .justify-between {
     justify-content: space-between;
+}
+.justify-end {
+    justify-content: flex-end;
 }
 .items-center {
     align-items: center;
@@ -84,6 +87,13 @@ body {
 .mt-40 {
     margin-top: 40px;
 }
+.mt-60 {
+    margin-top: 60px;
+}
 .mr-30 {
     margin-right: 30px;
+}
+
+.relative {
+    position: relative;
 }

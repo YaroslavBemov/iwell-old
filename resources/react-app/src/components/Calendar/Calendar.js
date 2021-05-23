@@ -58,11 +58,9 @@ const Calendar = () => {
   //   setCurrentEvents(newEvent);
   // }
 
-  const title = "Календарь";
-
   return (
     <div className="calendar">
-      <h1>{title}</h1>
+      <h1>Календарь</h1>
       <p>Выберите свободное время</p>
       <FullCalendar
         plugins={[ timeGridPlugin, interactionPlugin ]}
@@ -87,12 +85,11 @@ const Calendar = () => {
         eventContent={renderEventContent}
         eventClick={handleEventClick}
         //eventsSet={handleEvents} // called after events are initialized/added/changed/removed
-    
       />
       <div className={`${activeButton ? "visible" : "invisible"} flex justify-between items-center mt-40`}>
         <span className="dark-grey-text">Не больше 1 заказа</span>
-        <Link to="/choice" onClick={title}>
-          <button className="button">Продолжить</button>
+        <Link to="/choice" >
+          <button className="button" >Продолжить</button>
         </Link>
       </div>
     </div>

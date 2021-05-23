@@ -3,7 +3,6 @@
 .calendar {
     margin-bottom: -50px;
     h1 {
-        margin: 0;
         font-size: $font-size-lg;
         line-height: $line-height-lg;
     }
@@ -11,6 +10,55 @@
         margin: 30px 0;
         font-size: $font-size-base;
         line-height: $line-height-base;
+    }
+    a {
+        text-decoration: none;
+    }
+    button, input {
+        box-sizing: border-box;
+        outline: none;
+        letter-spacing: 0.44px;
+        font-family: $font-family-sans-serif;
+    }
+    label {
+        font-size: $font-size-base;
+        line-height: $line-height-base;
+        letter-spacing: 0.44px;
+        color: $dark-grey;
+        margin-bottom: 16px;
+    }
+    &__input {
+        width: 100%;
+        padding: 6px 12px;
+        border-radius: 5px;
+        border: 1px solid $dark-grey;
+        background: $light-green;
+        color: $primary-gray;
+        font-size: $font-size-base;
+        line-height: $line-height-base;
+        &::placeholder {
+            color: $dark-grey;
+            font-size: $font-size-sm;
+            line-height: $line-height-sm;
+        }      
+    }
+}
+
+.noline {
+    padding: 0;
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    margin-bottom: 40px;
+}
+
+.underline {
+    padding-bottom: 10px;
+    border-bottom: 1px solid $dark-grey;
+    &::placeholder {
+        color: $primary-gray;
+        font-size: $font-size-base;
+        line-height: $line-height-base; 
     }
 }
 
@@ -106,17 +154,14 @@
 .button {
     width: 245px;
     height: 48px;
-    box-sizing: border-box;
     border-radius: 5px;
     border: 2px solid $green;
-    outline: none;
     font-weight: 500;
     font-size: $font-size-base;
     line-height: $line-height-base;
     display: flex;
     align-items: center;
     justify-content: center;
-    letter-spacing: 0.44px;
     color: $green;
     &:hover {
     filter: brightness(102%);
@@ -136,4 +181,12 @@
 }
 .invisible {
     visibility: hidden;
+}
+
+.btn-back {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    border: none;
+    cursor: pointer;
 }
