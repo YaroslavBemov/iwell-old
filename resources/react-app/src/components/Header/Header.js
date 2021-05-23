@@ -6,23 +6,11 @@ import BellIcon from "./icons/BellIcon";
 import Login from "../Login";
 
 const Header = () => {
-  const [login, setLogin] = useState({
-    login: false,
-  });
+  const [login, setLogin] = useState({ login: false });
 
-  const openLogin = () => {
-    setLogin({
-      ...login,
-      login: true,
-    });
-  };
+  const openLogin = () => setLogin({ ...login, login: true });
 
-  const closeLogin = () => {
-    setLogin({
-      ...login,
-      login: false,
-    });
-  };
+  const closeLogin = () => setLogin({ ...login, login: false });
 
   return (
     <header className="flex justify-between items-center">

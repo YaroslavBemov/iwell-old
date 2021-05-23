@@ -27,14 +27,14 @@ const Login = ({ isOpened, closeLogin }) => {
                 <h1 className="login__title">Вход</h1>
                 <div className="login__logo-wrapper mt-70">
                     <a
-                        className="login__logo-facebook"
+                        className="mr-40"
                         href="https://www.facebook.com/"
                         target="_blanc"
                     >
                         <FacebookIcon />
                     </a>
                     <a
-                        className="login__logo-vk"
+                        className="mr-40"
                         href="https://vk.com/"
                         target="_blanc"
                     >
