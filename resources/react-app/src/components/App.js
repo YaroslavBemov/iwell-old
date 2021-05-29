@@ -17,14 +17,14 @@ function App() {
         <Content>
           <Switch>
             <Route exact path="/" component={Classes}/>
-            <Route exact path="/calendar" component={Calendar}/>
-            <Route exact path="/choice" component={ChoiceAbonement}/>
+            <Route path="/calendar" component={Calendar}/>
+            <Route path="/choice" component={ChoiceAbonement}/>
             {/* <Route path="/subscription" component={Subscription}/>
             <Route path="/info" component={Info}/>
             <Route path="/trainings" component={Trainings}/>
             <Route path="/tariffs" component={Tariffs}/>
             <Route path="/schedule" component={Schedule}/>
-            <Route exact path="/clients" component={Clients}/> 
+            <Route path="/clients" component={Clients}/> 
             <Route path="/login" component={Login}/>*/}
           </Switch>
         </Content>

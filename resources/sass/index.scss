@@ -41,7 +41,7 @@ body {
         padding: var(--aside-spacing);
         background-color: $light-green;
         display: flex;
-        align-items: center;
+        flex-direction: column;
         nav {
             display: flex;
             flex-direction: column;
@@ -79,6 +79,9 @@ body {
 }
 .flex-col {
     flex-direction: column;
+}
+.items-start {
+    align-items: flex-start;
 }
 
 .ml-40 {
