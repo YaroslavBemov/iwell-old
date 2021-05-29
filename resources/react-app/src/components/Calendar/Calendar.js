@@ -88,7 +88,7 @@ const Calendar = () => {
       />
       <div className={`${activeButton ? "visible" : "invisible"} flex justify-between items-center mt-40`}>
         <span className="dark-grey-text">Не больше 1 заказа</span>
-        <Link to="/choice">
+        <Link to="/schedule/calendar/choice">
           <button className="button" >Продолжить</button>
         </Link>
       </div>
