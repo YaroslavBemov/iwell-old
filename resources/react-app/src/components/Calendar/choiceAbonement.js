@@ -3,12 +3,35 @@ import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./calendar.scss";
 import ArrowBack from "../Header/icons/ArrowBack";
+import { INITIAL_EVENTS, createEventId } from "./event-utils";
 
 const ChoiceAbonement = () => {
   const history = useHistory();
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
-  console.log(errors);
+  const [currentEvents, setCurrentEvents] = useState(INITIAL_EVENTS);
+  // const onSubmit = data => console.log(data);
+  // console.log(errors);
+
+  const onSubmit = (data) => {
+    console.log(data);
+    // const newEvent = [...currentEvents, data.id];
+    // setCurrentEvents(newEvent);
+
+    // console.log(newEvent);
+
+    // // clickInfo.event.remove()  // const handleEventClick = (clickInfo) => {}
+
+    // let calendarApi = data.view.calendar
+    // console.log(calendarApi);
+    // calendarApi.addEvent({
+    //   id: createEventId(),
+    //   title: "222",
+    //   start: data.startStr,
+    //   end: data.endStr,
+    //   allDay: false,
+    //   //display: "background",
+    // })
+  }
 
   const [choice, setChoice] = useState(true);
   
@@ -30,7 +53,7 @@ const ChoiceAbonement = () => {
               type="tel"
               className="calendar__input"
               placeholder="Номер абонемента"
-              {...register("abonementNumber", { required: true })}
+              {...register("abonementNumber", { required: true, maxLength: 30 })}
             />
             <div className="flex justify-end items-center mt-40">
               <button type="submit" className="button"
@@ -50,14 +73,14 @@ const ChoiceAbonement = () => {
               className="calendar__input noline"
               value="Абонемент 000152684" 
               label="First Name"
-              {...register("Client", {required: true, maxLength: 80})} 
+              {...register("Client", { required: true })} 
             />
             <label>Дата и время</label>
             <input 
               type="datetime" 
               className="calendar__input noline"
               value="Суббота, 6 марта 15:00 - 16:00" 
-              {...register("DateTime", {required: true, maxLength: 100})} 
+              {...register("DateTime", { required: true })} 
             />
             <label>Комментарий</label>
             <input 

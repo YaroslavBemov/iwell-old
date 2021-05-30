@@ -4,16 +4,22 @@ let todayStr = new Date().toISOString().replace(/T.*$/, '') // YYYY-MM-DD of tod
 export const INITIAL_EVENTS = [
   {
     id: createEventId(),
-    title: 'All-day event',
-    start: '2021-05-20T12:00:00Z',
+    title: 'Event 1',
+    start: todayStr + 'T12:00:00',
     display: "background",
   },
   {
     id: createEventId(),
-    title: 'Timed event',
-    start: '2021-05-18T15:00:00Z',
+    title: 'Event 2',
+    start: '2021-05-29T17:00:00Z',
     display: "background",
-  }
+  },
+  {
+    id: createEventId(),
+    title: 'Event 3',
+    start: '2021-05-30T10:00:00Z',
+    display: "background",
+  },
 ]
 
 export function createEventId() {

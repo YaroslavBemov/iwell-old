@@ -48,7 +48,7 @@ const Navbar = () => {
               <NavLink to="/classes/last" activeClassName="selected">Прошедшие</NavLink>
             </div>
           )}
-        <Link to="/schedule" 
+        <Link to="/schedule_active" 
           onClick={ () => {
             setClients(false);
             setClasses(false);
@@ -58,9 +58,9 @@ const Navbar = () => {
         </Link>
           {schedule && (
             <div className="flex flex-col items-start ml-40">
-              <NavLink to="/schedule/active" activeClassName="selected">Активное</NavLink>
-              <NavLink to="/schedule/notactive" activeClassName="selected">Неактивное</NavLink>
-              <NavLink to="/schedule/calendar" activeClassName="selected">Календарь</NavLink>
+              <NavLink to="/schedule_active" activeClassName="selected">Активное</NavLink>
+              <NavLink to="/schedule_notactive" activeClassName="selected">Неактивное</NavLink>
+              <NavLink to="/calendar" activeClassName="selected">Календарь</NavLink>
             </div>
           )}
         <Link to="/info" onClick={toggleVisibility}>

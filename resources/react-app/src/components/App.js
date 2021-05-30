@@ -17,8 +17,8 @@ function App() {
         <Content>
           <Switch>
             <Route exact path="/" component={Classes}/>
-            <Route path="/schedule/calendar" component={Calendar}/>
-            <Route path="/schedule/calendar/choice" component={ChoiceAbonement}/>
+            <Route path="/calendar" component={Calendar}/>
+            <Route path="/choice" component={ChoiceAbonement}/>
             {/* <Route path="/subscription" component={Subscription}/>
             <Route path="/info" component={Info}/>
             <Route path="/trainings" component={Trainings}/>
