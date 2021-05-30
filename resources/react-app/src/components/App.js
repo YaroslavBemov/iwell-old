@@ -6,7 +6,8 @@ import Content from "./Content";
 import Classes from "./Classes";
 import Login from "./Login";
 import Calendar from "./Calendar";
-import ChoiceAbonement from "./Calendar/choiceAbonement";
+import BookEvent from "./Calendar/bookEvent";
+import ViewEvent from "./Calendar/viewEvent";
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
           <Switch>
             <Route exact path="/" component={Classes}/>
             <Route path="/calendar" component={Calendar}/>
-            <Route path="/choice" component={ChoiceAbonement}/>
+            <Route path="/choice" component={BookEvent}/>
+            <Route path="/view_event" component={ViewEvent}/>
             {/* <Route path="/subscription" component={Subscription}/>
             <Route path="/info" component={Info}/>
             <Route path="/trainings" component={Trainings}/>

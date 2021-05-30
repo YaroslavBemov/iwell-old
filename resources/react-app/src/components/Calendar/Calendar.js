@@ -7,9 +7,6 @@ import "./calendar.scss";
 import { INITIAL_EVENTS, createEventId } from "./event-utils";
 
 const Calendar = () => {
-
- // const [calendApi, setCalendApi] = useState(null);
-
   const [currentEvents, setCurrentEvents] = useState(INITIAL_EVENTS);
   const [activeButton, setActiveButton] = useState(false);
   const [viewButton, setViewButton] = useState(false);
@@ -25,10 +22,6 @@ const Calendar = () => {
       setActiveButton(true);
       setViewButton(false); 
     }
-    // let calendarApi = selectInfo.view.calendar
-    // setCalendApi(calendarApi)
-    // console.log("calendApi: " + calendApi)
-    //calendarApi.unselect()
   }
 
   const renderEventContent = (eventInfo) => {
@@ -37,23 +30,6 @@ const Calendar = () => {
         <span>{eventInfo.timeText}</span>
       </>
     )
-  }
-
-  const handleEvents = (event) => {
-    const newEvent = [...currentEvents, event.id];
-    setCurrentEvents(newEvent);
-
-    // clickInfo.event.remove()  // const handleEventClick = (clickInfo) => {}
-
-    // let calendarApi = event.view.calendar
-    // calendarApi.addEvent({
-    //   id: createEventId(),
-    //   title: "",
-    //   start: event.startStr,
-    //   end: event.endStr,
-    //   allDay: false,
-    //   display: "background",
-    // })
   }
 
   return (
@@ -81,7 +57,6 @@ const Calendar = () => {
         initialEvents={INITIAL_EVENTS} // alternatively, use the `events` setting to fetch from a feed
         select={handleDateSelect}
         eventContent={renderEventContent}
-        // eventsSet={handleEvents} // called after events are initialized/added/changed/removed
       />
       {activeButton ? (
         <div className="flex justify-between items-center mt-40">

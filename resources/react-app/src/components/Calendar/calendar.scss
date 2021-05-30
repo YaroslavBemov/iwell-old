@@ -5,6 +5,7 @@
     h1 {
         font-size: $font-size-lg;
         line-height: $line-height-lg;
+        font-weight: 500;
     }
     p {
         margin: 30px 0;
@@ -55,11 +56,6 @@
 .underline {
     padding-bottom: 10px;
     border-bottom: 1px solid $dark-grey;
-    &::placeholder {
-        color: $primary-gray;
-        font-size: $font-size-base;
-        line-height: $line-height-base; 
-    }
 }
 
 .fc {
@@ -167,6 +163,13 @@
     filter: brightness(102%);
     cursor: pointer;
     }
+}
+
+.btn-red {
+    width: auto;
+    padding: 0 25px;
+    border: 2px solid $orange;
+    color: $orange;
 }
 
 .dark-grey-text {
