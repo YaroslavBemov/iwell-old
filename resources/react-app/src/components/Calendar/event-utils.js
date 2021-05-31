@@ -11,13 +11,13 @@ export const INITIAL_EVENTS = [
   {
     id: createEventId(),
     title: 'Event 2',
-    start: '2021-05-29T17:00:00Z',
+    start: '2021-06-05T17:00:00Z',
     display: "background",
   },
   {
     id: createEventId(),
     title: 'Event 3',
-    start: '2021-05-30T10:00:00Z',
+    start: '2021-06-03T10:00:00Z',
     display: "background",
   },
 ]
