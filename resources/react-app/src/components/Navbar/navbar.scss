@@ -1,0 +1,12 @@
+@import "../../../../sass/variables";
+
+.text-base {
+   font-size: $font-size-base;
+   line-height: $line-height-base;
+   letter-spacing: 0.44px;
+   font-weight: 500;
+}
+
+.selected {
+   border-bottom: 1px solid $dark-grey;
+}
