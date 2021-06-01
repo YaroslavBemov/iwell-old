@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Auth\ApiAuthController;
 use \App\Http\Controllers\ArticleController;
 use \App\Http\Controllers\CityController;
+use \App\Http\Controllers\SkillTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,10 +26,6 @@ Route::group([
     Route::post('/signin', [ApiAuthController::class, 'signIn'])->name('login.api');
     Route::post('/register', [ApiAuthController::class, 'register'])->name('register.api');
 
-    // Citi
-    Route::get('/cities', [CityController::class, 'index']);
-    Route::get('/cities/{city}', [CityController::class, 'show']);
-
     // protected routes
     Route::group([
         'middleware' => 'auth:api'
@@ -46,6 +43,13 @@ Route::group([
             Route::patch('/{id}', [ArticleController::class, 'update'])->name('update');
             Route::delete('/{id}', [ArticleController::class, 'destroy'])->name('destroy');
         });
+
+        // City
+        Route::get('/cities', [CityController::class, 'index']);
+        Route::get('/cities/{city}', [CityController::class, 'show']);
+
+        // Skill type
+        Route::get('/skill-types', [SkillTypeController::class, 'index']);
     });
 
 
