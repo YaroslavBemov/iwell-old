@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Auth\ApiAuthController;
 use \App\Http\Controllers\ArticleController;
+use \App\Models\Citi;
+use \App\Http\Controllers\CoachController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,10 @@ Route::group([
     Route::post('/signin', [ApiAuthController::class, 'signIn'])->name('login.api');
     Route::post('/register', [ApiAuthController::class, 'register'])->name('register.api');
 
+    // Citi
+    Route::get('/cities', [Citi::class, 'index']);
+    Route::get('/cities/{id}', [Citi::class, 'show']);
+
     // protected routes
     Route::group([
         'middleware' => 'auth:api'
@@ -41,6 +47,10 @@ Route::group([
             Route::patch('/{id}', [ArticleController::class, 'update'])->name('update');
             Route::delete('/{id}', [ArticleController::class, 'destroy'])->name('destroy');
         });
+
+        // Coach
+        Route::resources(['coaches' => CoachController::class]);
+        
     });
 
 
