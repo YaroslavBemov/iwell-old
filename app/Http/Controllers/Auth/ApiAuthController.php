@@ -10,6 +10,61 @@ use Illuminate\Support\Facades\Validator;
 //TODO middleware с проверкой ключа приложения
 class ApiAuthController extends Controller
 {
+    /**
+     * @OA\Post(
+     *      path="/api/register",
+     *      operationId="register",
+     *      tags={"user"},
+     *      summary="Create new user",
+     *      description="Create new user and return details",
+     *     @OA\Parameter(
+     *          name="email",
+     *          description="User email",
+     *          required=true,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="password",
+     *          description="User password",
+     *          required=true,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="first_name",
+     *          description="User first_name",
+     *          required=true,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="last_name",
+     *          description="User last_name",
+     *          required=true,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="remember_token",
+     *          description="User remember_token",
+     *          required=false,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="birthday",
+     *          description="User birthday",
+     *          required=false,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="gender",
+     *          description="User gender",
+     *          required=false,
+     *          in="query",
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *     )
+     */
     public function register(RegisterFormRequest $request)
     {
         $user = User::create(array_merge(
@@ -22,6 +77,31 @@ class ApiAuthController extends Controller
         return response($user, 200);
     }
 
+    /**
+     * @OA\Post(
+     *      path="/api/signin",
+     *      operationId="signin",
+     *      tags={"user"},
+     *      summary="signin",
+     *      description="return user info and token",
+     *     @OA\Parameter(
+     *          name="email",
+     *          description="User email",
+     *          required=true,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="password",
+     *          description="User password",
+     *          required=true,
+     *          in="query",
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *     )
+     */
     public function signIn(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -50,6 +130,25 @@ class ApiAuthController extends Controller
         }
     }
 
+    /**
+     * @OA\Post(
+     *      path="/api/signout",
+     *      operationId="signout",
+     *      tags={"user"},
+     *      summary="signout",
+     *      description="revoke user token",
+     *     @OA\Parameter(
+     *          name="token",
+     *          description="User token",
+     *          required=true,
+     *          in="query",
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *     )
+     */
     public function signOut(Request $request)
     {
         $token = $request->user()->token();

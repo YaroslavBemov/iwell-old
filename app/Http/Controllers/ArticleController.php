@@ -10,9 +10,29 @@ use Illuminate\Support\Facades\Validator;
 class ArticleController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @OA\Get(
+     *      path="/api/articles",
+     *      operationId="getArticles",
+     *      tags={"article"},
+     *      summary="Get all articles",
+     *      description="Get list of all articles or articles by user id if it is in query parameters",
+     *     @OA\Parameter(
+     *          name="token",
+     *          description="Access token",
+     *          required=true,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="userId",
+     *          description="User id",
+     *          required=false,
+     *          in="query",
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *     )
      */
     public function index(Request $request)
     {
