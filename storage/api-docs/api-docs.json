@@ -19,6 +19,35 @@
         }
     ],
     "paths": {
+        "/api/articles": {
+            "get": {
+                "tags": [
+                    "article"
+                ],
+                "summary": "Get all articles",
+                "description": "Get list of all articles or articles by user id if it is in query parameters",
+                "operationId": "getArticles",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true
+                    },
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "description": "User id",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
         "/api/register": {
             "post": {
                 "tags": [
