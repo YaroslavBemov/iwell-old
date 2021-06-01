@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Auth\ApiAuthController;
 use \App\Http\Controllers\ArticleController;
-use \App\Models\Citi;
+use \App\Http\Controllers\CityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +26,8 @@ Route::group([
     Route::post('/register', [ApiAuthController::class, 'register'])->name('register.api');
 
     // Citi
-    Route::get('/cities', [Citi::class, 'index']);
-    Route::get('/cities/{id}', [Citi::class, 'show']);
+    Route::get('/cities', [CityController::class, 'index']);
+    Route::get('/cities/{city}', [CityController::class, 'show']);
 
     // protected routes
     Route::group([
