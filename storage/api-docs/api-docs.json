@@ -1,0 +1,143 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "iWell OpenApi Demo Documentation",
+        "description": "Swagger OpenApi description",
+        "contact": {
+            "email": "yaroslav.bemov@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000",
+            "description": "Demo API Server"
+        }
+    ],
+    "paths": {
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Create new user",
+                "description": "Create new user and return details",
+                "operationId": "register",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "User email",
+                        "required": true
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "User password",
+                        "required": true
+                    },
+                    {
+                        "name": "first_name",
+                        "in": "query",
+                        "description": "User first_name",
+                        "required": true
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "query",
+                        "description": "User last_name",
+                        "required": true
+                    },
+                    {
+                        "name": "remember_token",
+                        "in": "query",
+                        "description": "User remember_token",
+                        "required": false
+                    },
+                    {
+                        "name": "birthday",
+                        "in": "query",
+                        "description": "User birthday",
+                        "required": false
+                    },
+                    {
+                        "name": "gender",
+                        "in": "query",
+                        "description": "User gender",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/signin": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "signin",
+                "description": "return user info and token",
+                "operationId": "signin",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "User email",
+                        "required": true
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "User password",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/signout": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "signout",
+                "description": "revoke user token",
+                "operationId": "signout",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "description": "User token",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "iWell",
+            "description": "API Endpoints of iWell"
+        }
+    ],
+    "security": [
+        []
+    ]
+}
