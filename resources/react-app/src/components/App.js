@@ -4,7 +4,6 @@ import Header from "./Header";
 import Navbar from "./Navbar";
 import Content from "./Content";
 import Classes from "./Classes";
-import Login from "./Login";
 import Calendar from "./Calendar";
 import BookEvent from "./Calendar/bookEvent";
 import ViewEvent from "./Calendar/viewEvent";

@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "./icons/Logo";
 import UserIcon from "./icons/UserIcon";
 import BellIcon from "./icons/BellIcon";
+import Login from "../Login";
 
 const Header = () => {
+  const [login, setLogin] = useState({ login: false });
+
+  const openLogin = () => setLogin({ ...login, login: true });
+
+  const closeLogin = () => setLogin({ ...login, login: false });
+
   return (
     <header className="flex justify-between items-center">
       <Link to="/"><Logo /></Link>
@@ -14,9 +21,13 @@ const Header = () => {
         <Link to="/schedule">Расписание</Link>
       </nav>
       <div>
-        <Link to="/user" className="mr-30"><UserIcon /></Link>
+        <button className="mr-30" onClick={openLogin}><UserIcon /></button>
         <Link to="/bells"><BellIcon /></Link>
-      </div>     
+      </div>
+      <Login 
+        isOpened={login.login}
+        closeLogin={closeLogin}
+      />
     </header>
   );
 };
