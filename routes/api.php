@@ -6,6 +6,7 @@ use \App\Http\Controllers\Auth\ApiAuthController;
 use \App\Http\Controllers\ArticleController;
 use \App\Http\Controllers\CityController;
 use \App\Http\Controllers\SkillTypeController;
+use \App\Http\Controllers\SkillController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,8 +49,9 @@ Route::group([
         Route::get('/cities', [CityController::class, 'index']);
         Route::get('/cities/{city}', [CityController::class, 'show']);
 
-        // Skill type
+        // Skill
         Route::get('/skill-types', [SkillTypeController::class, 'index']);
+        Route::get('/skills', [SkillController::class, 'index']);
     });
 
 

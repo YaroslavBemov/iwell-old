@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SkillType;
+use App\Models\Skill;
 use Illuminate\Http\Request;
 
-class SkillTypeController extends Controller
+class SkillController extends Controller
 {
     /**
      * @OA\Get(
-     *      path="/api/skill-types",
-     *      operationId="getSkillTypes",
+     *      path="/api/skills",
+     *      operationId="getSkills",
      *      tags={"coach"},
-     *      summary="Get all Skill Types",
-     *      description="Get list of all Skill Types",
+     *      summary="Get all skills",
+     *      description="Get list of all skills",
      *     @OA\Parameter(
      *          name="token",
      *          description="Access token",
@@ -28,9 +28,7 @@ class SkillTypeController extends Controller
      */
     public function index()
     {
-        $types = SkillType::all();
-
-        return response($types, 200);
+        //
     }
 
     /**
@@ -47,10 +45,10 @@ class SkillTypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\SkillType  $skillType
+     * @param  \App\Models\Skill  $skill
      * @return \Illuminate\Http\Response
      */
-    public function show(SkillType $skillType)
+    public function show(Skill $skill)
     {
         //
     }
@@ -59,10 +57,10 @@ class SkillTypeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\SkillType  $skillType
+     * @param  \App\Models\Skill  $skill
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SkillType $skillType)
+    public function update(Request $request, Skill $skill)
     {
         //
     }
@@ -70,10 +68,10 @@ class SkillTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\SkillType  $skillType
+     * @param  \App\Models\Skill  $skill
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SkillType $skillType)
+    public function destroy(Skill $skill)
     {
         //
     }

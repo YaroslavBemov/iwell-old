@@ -210,6 +210,52 @@
                     }
                 }
             }
+        },
+        "/api/skills": {
+            "get": {
+                "tags": [
+                    "skill"
+                ],
+                "summary": "Get all skills",
+                "description": "Get list of all skills",
+                "operationId": "getSkills",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/skill-types": {
+            "get": {
+                "tags": [
+                    "skill"
+                ],
+                "summary": "Get all Skill Types",
+                "description": "Get list of all Skill Types",
+                "operationId": "getSkillTypes",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
         }
     },
     "tags": [
