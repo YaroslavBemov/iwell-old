@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\CoachSkill;
 use Illuminate\Database\Seeder;
 use \App\Models\User;
 
@@ -14,9 +15,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         User::factory()
-             ->count(10)
-             ->hasArticles(2)
-             ->create();
+         $this->call([
+             UserSeeder::class,
+             ArticleSeeder::class,
+             CoachSeeder::class,
+             SkillTypeSeeder::class,
+             SkillSeeder::class,
+             CoachSkillSeeder::class
+         ]);
     }
 }
