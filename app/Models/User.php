@@ -58,4 +58,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Article::class);
     }
+
+    public function coaches() {
+        return $this->belongsTo(Coach::class);
+    }
 }

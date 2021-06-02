@@ -7,6 +7,7 @@ use \App\Http\Controllers\ArticleController;
 use \App\Http\Controllers\CityController;
 use \App\Http\Controllers\SkillTypeController;
 use \App\Http\Controllers\SkillController;
+use \App\Http\Controllers\CoachController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Route::group([
     // public routes
     Route::post('/signin', [ApiAuthController::class, 'signIn'])->name('login.api');
     Route::post('/register', [ApiAuthController::class, 'register'])->name('register.api');
+    Route::post('/register/coach', [CoachController::class, 'register']);
 
     // protected routes
     Route::group([
@@ -52,6 +54,9 @@ Route::group([
         // Skill
         Route::get('/skill-types', [SkillTypeController::class, 'index']);
         Route::get('/skills', [SkillController::class, 'index']);
+
+        // Coach
+
     });
 
 
