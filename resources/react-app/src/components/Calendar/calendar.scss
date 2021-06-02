@@ -1,0 +1,196 @@
+@import "../../../../sass/variables";
+
+.calendar {
+    margin-bottom: -50px;
+    h1 {
+        margin: 0;
+        font-size: $font-size-lg;
+        line-height: $line-height-lg;
+        font-weight: 500;
+    }
+    p {
+        margin: 30px 0;
+        font-size: $font-size-base;
+        line-height: $line-height-base;
+    }
+    a {
+        text-decoration: none;
+    }
+    button, input {
+        box-sizing: border-box;
+        outline: none;
+        letter-spacing: 0.44px;
+        font-family: $font-family-sans-serif;
+    }
+    label {
+        font-size: $font-size-base;
+        line-height: $line-height-base;
+        letter-spacing: 0.44px;
+        color: $dark-grey;
+        margin-bottom: 16px;
+    }
+    &__input {
+        width: 100%;
+        padding: 6px 12px;
+        border-radius: 5px;
+        border: 1px solid $dark-grey;
+        background: $light-green;
+        color: $primary-gray;
+        font-size: $font-size-base;
+        line-height: $line-height-base;
+        &::placeholder {
+            color: $dark-grey;
+            font-size: $font-size-sm;
+            line-height: $line-height-sm;
+        }      
+    }
+}
+
+.noline {
+    padding: 0;
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    margin-bottom: 40px;
+}
+
+.underline {
+    padding-bottom: 10px;
+    border-bottom: 1px solid $dark-grey;
+}
+
+.fc {
+    max-width: 1000px;
+    margin: 0 auto;
+    color: $primary-gray;
+    .fc-toolbar {
+        justify-content: flex-start;
+    }
+    .fc-toolbar.fc-header-toolbar {
+        padding: 20px;
+        background: $light-green;
+    }
+    .fc-button {
+        background: $primary-white;
+        border: 1px solid $dark-grey;
+        box-sizing: border-box;
+        border-radius: 5px;
+        color: $dark-grey;
+        font-weight: 400;
+        font-size: $font-size-base;
+        line-height: $line-height-base;
+        letter-spacing: 0.44px;
+        padding: 5px 11px;
+    }
+    .fc-button-primary:disabled,
+    .fc-button:hover,
+    .fc-button-primary:not(:disabled):active,
+    .fc-button-primary:not(:disabled).fc-button-active {
+        background: $primary-white;
+        border: 1px solid $dark-grey;
+        box-sizing: border-box;
+        border-radius: 5px;
+        color: $dark-grey;
+        filter: brightness(102%);
+    }
+    .fc-button:focus,
+    .fc-button-primary:not(:disabled):active:focus,
+    .fc-button-primary:not(:disabled).fc-button-active:focus {
+        outline: none;
+        box-shadow: none;
+    }
+    .fc-toolbar-title {
+        margin-left: 20px;
+        font-weight: 400;
+        font-size: $font-size-base;
+        line-height: $line-height-base;
+        letter-spacing: 0.44px;
+    }
+    .fc-col-header-cell-cushion,
+    .fc-timegrid-slot-label-cushion {
+        font-weight: 300;
+        font-size: $font-size-sm;
+        line-height: $line-height-sm;
+    }
+    .fc-col-header-cell-cushion {
+        padding: 10px 4px;
+    }
+    .fc-bg-event {
+        opacity: 1;
+        background: $light-green;
+    }
+}
+
+.fc-direction-ltr .fc-toolbar > * > :not(:first-child) {
+    margin-left: 20px;
+}
+
+.fc-v-event {
+    background: $light-green;
+    border: none;
+    border-radius: unset;
+    width: 100%;
+    font-weight: 300;
+}
+
+.fc-event-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fc-timegrid-event.fc-event-mirror {
+    box-shadow: none;
+    background-color: $orange;
+    font-weight: 300;
+    font-size: $font-size-xs;
+    line-height: $line-height-xs;
+    color: $primary-white;
+}
+
+.button {
+    width: 245px;
+    height: 48px;
+    border-radius: 5px;
+    border: 2px solid $green;
+    font-weight: 500;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $green;
+    &:hover {
+    filter: brightness(102%);
+    cursor: pointer;
+    }
+}
+
+.btn-red {
+    width: auto;
+    padding: 0 25px;
+    border: 2px solid $orange;
+    color: $orange;
+}
+
+.dark-grey-text {
+    font-weight: 300;
+    font-size: $font-size-sm;
+    line-height: $line-height-sm;
+    color: $dark-grey;
+}
+
+.visible {
+    visibility: visible;
+}
+.invisible {
+    visibility: hidden;
+}
+
+.btn-back {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    border: none;
+    cursor: pointer;
+}
