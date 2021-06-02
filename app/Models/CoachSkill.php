@@ -5,17 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Skill extends Model
+class CoachSkill extends Model
 {
     use HasFactory;
 
-    protected $table = 'skills';
+    protected $table = 'coach_skills';
 
     protected $fillable = [
-        'title',
-        'description',
-        'type_id',
-        'score_for_coach'
+        'coach_id',
+        'skill_id'
     ];
 
     protected $hidden = [
@@ -24,7 +22,11 @@ class Skill extends Model
         'deleted_at'
     ];
 
-    public function skillTypes() {
-        return $this->belongsTo(SkillType::class);
+    public function skills() {
+        return $this->belongsTo(Skill::class);
+    }
+
+    public function coaches() {
+        return $this->belongsTo(Coach::class);
     }
 }

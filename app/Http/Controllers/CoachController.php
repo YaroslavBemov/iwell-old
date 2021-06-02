@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Api\RegisterFormRequest;
 use App\Models\Coach;
+use App\Models\CoachSkill;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -116,13 +117,17 @@ class CoachController extends Controller
             $request->only(
                 'achieve',
                 'rank',
-                'about',
-                'skill_id'
+                'about'
             ),
             ['user_id' => $user->id]
         ));
 
-        $response = array_merge(array($user), array($coach));
+        $coachSkill = CoachSkill::create(array_merge(
+            $request->only('skill_id'),
+            ['coach_id' => $coach->id]
+        ));
+
+        $response = array_merge(array($user), array($coach), array($coachSkill));
 
         return response($response, 200);
     }

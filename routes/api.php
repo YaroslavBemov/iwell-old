@@ -29,6 +29,14 @@ Route::group([
     Route::post('/register', [ApiAuthController::class, 'register'])->name('register.api');
     Route::post('/register/coach', [CoachController::class, 'register']);
 
+    // City
+    Route::get('/cities', [CityController::class, 'index']);
+    Route::get('/cities/{city}', [CityController::class, 'show']);
+
+    // Skill
+    Route::get('/skill-types', [SkillTypeController::class, 'index']);
+    Route::get('/skills', [SkillController::class, 'index']);
+
     // protected routes
     Route::group([
         'middleware' => 'auth:api'
@@ -47,13 +55,6 @@ Route::group([
             Route::delete('/{id}', [ArticleController::class, 'destroy'])->name('destroy');
         });
 
-        // City
-        Route::get('/cities', [CityController::class, 'index']);
-        Route::get('/cities/{city}', [CityController::class, 'show']);
-
-        // Skill
-        Route::get('/skill-types', [SkillTypeController::class, 'index']);
-        Route::get('/skills', [SkillController::class, 'index']);
 
         // Coach
 
