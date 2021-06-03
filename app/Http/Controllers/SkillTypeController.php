@@ -14,12 +14,6 @@ class SkillTypeController extends Controller
      *      tags={"coach"},
      *      summary="Get all Skill Types",
      *      description="Get list of all Skill Types",
-     *     @OA\Parameter(
-     *          name="token",
-     *          description="Access token",
-     *          required=true,
-     *          in="query",
-     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",

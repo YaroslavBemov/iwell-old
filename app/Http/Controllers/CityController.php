@@ -15,12 +15,6 @@ class CityController extends Controller
      *      tags={"city"},
      *      summary="Get all cities",
      *      description="Get list of all cities",
-     *     @OA\Parameter(
-     *          name="token",
-     *          description="Access token",
-     *          required=false,
-     *          in="query",
-     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
@@ -52,12 +46,6 @@ class CityController extends Controller
      *      tags={"city"},
      *      summary="Get city by id",
      *      description="Get one city by id",
-     *     @OA\Parameter(
-     *          name="token",
-     *          description="Access token",
-     *          required=false,
-     *          in="query",
-     *      ),
      *     @OA\Parameter(
      *          name="id",
      *          description="City id",
