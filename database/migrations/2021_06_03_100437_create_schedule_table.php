@@ -30,7 +30,7 @@ class CreateScheduleTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('coach_id')->references('id')->on('coaches');
+            $table->foreignId('coach_id')->constrained();
             $table->foreign('city_id')->references('id')->on('cities');
             $table->foreign('coach_skill_id')->references('id')->on('coach_skills');
         });
