@@ -8,13 +8,21 @@ use Illuminate\Http\Request;
 class CoachSkillController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @OA\Get(
+     *      path="/api/coach-skills",
+     *      operationId="getCoachSkills",
+     *      tags={"coach"},
+     *      summary="Get all approved coach skills",
+     *      description="Get list of all approved Coach Skills",
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *     )
      */
     public function index()
     {
-        //
+        // TODO coach skills, soft delete
     }
 
     /**

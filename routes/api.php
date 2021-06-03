@@ -8,6 +8,7 @@ use \App\Http\Controllers\CityController;
 use \App\Http\Controllers\SkillTypeController;
 use \App\Http\Controllers\SkillController;
 use \App\Http\Controllers\CoachController;
+use \App\Http\Controllers\CoachSkillController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,9 @@ Route::group([
     // Skill
     Route::get('/skill-types', [SkillTypeController::class, 'index']);
     Route::get('/skills', [SkillController::class, 'index']);
+
+    // Coach
+    Route::get('/coach-skills', [CoachSkillController::class, 'index']);
 
     // protected routes
     Route::group([
