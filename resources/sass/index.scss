@@ -72,6 +72,15 @@ body {
     }
 }
 
+.open {
+    display: block;
+}
+
+.close {
+    height: 0;
+    display: none;
+}
+
 p {
     margin: 0;
 }
@@ -112,6 +121,7 @@ p {
 }
 .mt-70 {
     margin-top: 70px;
+}
 .mt-60 {
     margin-top: 60px;
 }
@@ -120,6 +130,7 @@ p {
 }
 .mr-40 {
     margin-right: 40px;
+}
 .relative {
     position: relative;
 }

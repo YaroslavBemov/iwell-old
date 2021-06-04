@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "./Login.scss";
-import CloseButton from "./icons/CloseButton";
+import CloseButton from "../../assets/icons/CloseButton";
 import FacebookIcon from "./icons/FacebookIcon";
 import VkIcon from "./icons/VkIcon";
 import GoogleIcon from "./icons/GoogleIcon";
