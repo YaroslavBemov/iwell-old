@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Switch, Route } from "react-router-dom";
+import { NavLink, Switch, Route } from "react-router-dom";
 import ClientRegistration from "./ClientRegistration";
 import SpecialistRegistration from "./SpecialistRegistration";
 import "./Registration.scss";
@@ -8,18 +8,20 @@ const Registration = () => {
     return (
         <div className="registration">
             <div className="flex justify-center">
-                <Link
+                <NavLink
                     to="/registration/client"
                     className="registration__nav-link mr-40"
+                    activeClassName="selected"
                 >
                     Клиент
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                     to="/registration/specialist"
                     className="registration__nav-link"
+                    activeClassName="selected"
                 >
                     Специалист
-                </Link>
+                </NavLink>
             </div>
 
             <Switch>

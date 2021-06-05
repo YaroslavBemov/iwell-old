@@ -33,6 +33,13 @@
         font-size: 18px;
         line-height: 24px;
         background: transparent;
+        color: $dark-grey;
+        &::placeholder {
+            color: $dark-grey;
+        }
+    }
+    &__file {
+        
     }
     &__errors-message {
         color: red;
@@ -65,4 +72,8 @@
             text-align: center;
         }
     }
+}
+
+.selected {
+    border-bottom: 1px solid $dark-grey;
 }

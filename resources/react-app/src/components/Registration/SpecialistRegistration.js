@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
@@ -54,6 +54,11 @@ const SpecialistRegistration = () => {
                 placeholder="Город*"
                 onChange={handleChange}
             />
+            <select className="registration__form-input mt-20">
+                <option>Фитнес</option>
+                <option>Йога</option>
+                <option>Стретчинг</option>
+            </select>
             <input
                 {...register("zoom")}
                 name="zoom"
@@ -62,6 +67,17 @@ const SpecialistRegistration = () => {
                 placeholder="Логин в Zoom"
                 onChange={handleChange}
             />
+            <label>
+                <input
+                    {...register("file")}
+                    name="file"
+                    className="registration__file mt-20"
+                    type="file"
+                    placeholder="Выбрать"
+                    onChange={handleChange}
+                />
+            </label>
+
             {errors.email && (
                 <p className="registration__errors-message mt-10">
                     Введите Ваш Email
@@ -87,6 +103,6 @@ const SpecialistRegistration = () => {
             </p>
         </form>
     );
-}
- 
+};
+
 export default SpecialistRegistration;
