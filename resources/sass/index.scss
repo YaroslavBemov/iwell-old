@@ -35,15 +35,6 @@ body {
             line-height: $line-height-xs;
             letter-spacing: 0.44px;
         }
-        > nav > button {
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            font-weight: 500;
-            font-size: $font-size-xs;
-            line-height: $line-height-xs;
-            font-family: $font-family-sans-serif;
-        }
         > div > button:first-child {
             border: none;
             background: transparent;
@@ -98,6 +89,9 @@ p {
 }
 .justify-between {
     justify-content: space-between;
+}
+.justify-center {
+    justify-content: center;
 }
 .justify-end {
     justify-content: flex-end;

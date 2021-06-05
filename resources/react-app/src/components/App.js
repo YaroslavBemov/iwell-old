@@ -7,6 +7,7 @@ import Classes from "./Classes";
 import Calendar from "./Calendar";
 import BookEvent from "./Calendar/bookEvent";
 import ViewEvent from "./Calendar/viewEvent";
+import Registration from "./Registration";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Content>
         <Switch>
           <Route exact path="/" component={Classes}/>
+          <Route path="/registration" component={Registration}/>
           <Route path="/calendar" component={Calendar}/>
           <Route path="/choice" component={BookEvent}/>
           <Route path="/view_event" component={ViewEvent}/>

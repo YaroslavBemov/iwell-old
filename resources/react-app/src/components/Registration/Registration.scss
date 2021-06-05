@@ -1,34 +1,22 @@
 @import "../../../../sass/variables.scss";
 
 .registration {
-    position: fixed;
-    top: 40px;
-    right: 40px;
     background: #fff;
-    width: 409px;
     padding: 50px;
-    border-radius: 5px;
-    z-index: 3;
-    &__close-btn {
-        float: right;
-        margin-top: -27px;
-        margin-right: -27px;
-        font-size: 52px;
+    &__nav-link {
+        text-decoration: none;
+        text-align: center;
+        font-weight: 500;
+        font-size: $font-size-xs;
+        line-height: $line-height-sm;
         color: $dark-grey;
-        background: transparent;
-        border: none;
-        cursor: pointer;
     }
     &__wrapper {
-        & svg {
-            display: block;
-            margin: 0 auto;
-            width: 80px;
-            height: 80px;
-        }
+        width: 390px;
+        margin: 0 auto;
     }
     &__title {
-        margin: 0;
+        margin: 40 0 0 0;
         text-align: center;
         font-style: normal;
         font-weight: 500;
