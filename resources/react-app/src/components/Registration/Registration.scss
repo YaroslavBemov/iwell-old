@@ -39,7 +39,59 @@
         }
     }
     &__file {
-        
+        display: none;
+    }
+    &__file-label {
+        width: 240px;
+        height: 240px;
+        background: #cccccc;
+        border-radius: 5px;
+        position: relative;
+        & svg {
+            width: 150px;
+            height: 150px;
+            & path {
+                fill: $light-green;
+            }
+        }
+    }
+    &__file-span {
+        width: 120px;
+        border: 1px solid #dee2e0;
+        box-sizing: border-box;
+        border-radius: 5px;
+        padding: 8px;
+        background: $btn-green;
+        color: $dark-blue;
+        font-weight: 450;
+        font-size: 14px;
+        cursor: pointer;
+        position: absolute;
+        top: 230px;
+        left: 0;
+    }
+    &__captcha-label {
+        padding: 10px;
+        width: 280px;
+        background: #f9f9f9;
+        border: 1px solid $light-green;
+        box-sizing: border-box;
+        border-radius: 5px;
+    }
+    &__captcha {
+        // -webkit-appearance: none;
+        // -moz-appearance: none;
+        width: 24px;
+        height: 24px;
+        border: 1px solid #047A8A;
+        box-sizing: border-box;
+    }
+    &__captcha-span {
+        font-weight: 450;
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: 0.44px;
+        color: $dark-blue;
     }
     &__errors-message {
         color: red;
@@ -47,7 +99,7 @@
     &__form-btn {
         display: block;
         width: 100%;
-        background: rgba(158, 206, 179, 0.3);
+        background: $btn-green;
         border: 1px solid $light-green;
         box-sizing: border-box;
         border-radius: 5px;

@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import CaptchaIcon from "../../assets/icons/CaptchaIcon";
+import UserIcon from "../../assets/icons/UserIcon";
 
 const SpecialistRegistration = () => {
     const {
@@ -67,15 +69,33 @@ const SpecialistRegistration = () => {
                 placeholder="Логин в Zoom"
                 onChange={handleChange}
             />
-            <label>
+            <label className="registration__file-label flex justify-center items-center mt-40">
                 <input
                     {...register("file")}
                     name="file"
                     className="registration__file mt-20"
                     type="file"
-                    placeholder="Выбрать"
                     onChange={handleChange}
                 />
+                <UserIcon />
+                <span className="registration__file-span mt-20">
+                    Выбрать файл
+                </span>
+            </label>
+
+            <label className="registration__captcha-label flex justify-between items-center mt-80">
+                <div className='flex items-center'>
+                    <input
+                        {...register("captcha")}
+                        name="captcha"
+                        className="registration__captcha mr-10"
+                        type="checkbox"
+                        onChange={handleChange}
+                    />
+                    <span className="registration__captcha-span">Я не робот</span>
+                </div>
+
+                <CaptchaIcon />
             </label>
 
             {errors.email && (
@@ -88,7 +108,7 @@ const SpecialistRegistration = () => {
                     Введите Ваш пароль - минимум 6 символов
                 </p>
             )}
-            <button className="registration__form-btn mt-40" type="submit">
+            <button className="registration__form-btn mt-30" type="submit">
                 Зарегистрироваться
             </button>
             <p className="registration__small-text mt-20">

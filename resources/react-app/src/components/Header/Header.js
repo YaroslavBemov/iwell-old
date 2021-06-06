@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "./icons/Logo";
-import UserIcon from "./icons/UserIcon";
+import UserIcon from "../../assets/icons/UserIcon";
 import BellIcon from "./icons/BellIcon";
 import Login from "../Login";
 
