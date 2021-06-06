@@ -86,12 +86,13 @@
         border: 1px solid #047A8A;
         box-sizing: border-box;
     }
-    &__captcha-span {
+    &__txt {
         font-weight: 450;
         font-size: 18px;
         line-height: 24px;
         letter-spacing: 0.44px;
         color: $dark-blue;
+        text-align: center;
     }
     &__errors-message {
         color: red;
