@@ -19,6 +19,7 @@ const ClientRegistration = () => {
             onSubmit={handleSubmit(onSubmit)}
         >
             <h1 className="registration__title">Регистрация</h1>
+
             <input
                 {...register("name", { required: true })}
                 name="name"
@@ -27,6 +28,13 @@ const ClientRegistration = () => {
                 placeholder="Имя*"
                 onChange={handleChange}
             />
+
+            {errors.email && (
+                <p className="registration__errors-message mt-10">
+                    Введите Ваше имя
+                </p>
+            )}
+
             <input
                 {...register("password", { required: true, minLength: 6 })}
                 name="password"
@@ -35,6 +43,13 @@ const ClientRegistration = () => {
                 placeholder="Пароль*"
                 onChange={handleChange}
             />
+
+            {errors.password && (
+                <p className="registration__errors-message mt-10">
+                    Введите Ваш пароль - минимум 6 символов
+                </p>
+            )}
+
             <input
                 {...register("email", {
                     required: true,
@@ -46,6 +61,13 @@ const ClientRegistration = () => {
                 placeholder="E-mail*"
                 onChange={handleChange}
             />
+
+            {errors.email && (
+                <p className="registration__errors-message mt-10">
+                    Введите Ваш Email
+                </p>
+            )}
+
             <input
                 {...register("city", { required: true })}
                 name="city"
@@ -56,14 +78,10 @@ const ClientRegistration = () => {
             />
             {errors.email && (
                 <p className="registration__errors-message mt-10">
-                    Введите Ваш Email
+                    Введите Ваш город
                 </p>
             )}
-            {errors.password && (
-                <p className="registration__errors-message mt-10">
-                    Введите Ваш пароль - минимум 6 символов
-                </p>
-            )}
+            
             <button className="registration__form-btn mt-40" type="submit">
                 Зарегистрироваться
             </button>
