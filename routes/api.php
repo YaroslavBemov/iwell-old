@@ -1,14 +1,13 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\Auth\ApiAuthController;
-use \App\Http\Controllers\ArticleController;
-use \App\Http\Controllers\CityController;
-use \App\Http\Controllers\SkillTypeController;
-use \App\Http\Controllers\SkillController;
-use \App\Http\Controllers\CoachController;
-use \App\Http\Controllers\CoachSkillController;
+use App\Http\Controllers\Auth\ApiAuthController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\SkillTypeController;
+use App\Http\Controllers\SkillController;
+use App\Http\Controllers\CoachController;
+use App\Http\Controllers\CoachSkillController;
 
 /*
 |--------------------------------------------------------------------------
