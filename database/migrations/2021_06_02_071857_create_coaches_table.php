@@ -22,8 +22,6 @@ class CreateCoachesTable extends Migration
             $table->decimal('score');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -34,10 +32,6 @@ class CreateCoachesTable extends Migration
      */
     public function down()
     {
-        Schema::table('coaches', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-        });
-
         Schema::dropIfExists('coaches');
     }
 }

@@ -10,11 +10,4 @@ class City extends Model
     use HasFactory;
 
     protected $table = 'cities';
-
-//    protected $appends = ['userId'];
-//    protected $hidden = ['user_id'];
-//
-//    public function getCityIdAttribute(){
-//        return $this->attributes['city_id'];
-//    }
 }

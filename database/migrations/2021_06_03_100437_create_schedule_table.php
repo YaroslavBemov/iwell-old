@@ -13,7 +13,7 @@ class CreateScheduleTable extends Migration
      */
     public function up()
     {
-        Schema::table('schedule', function (Blueprint $table) {
+        Schema::create('schedule', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('coach_id');
             $table->unsignedInteger('city_id');
@@ -29,10 +29,6 @@ class CreateScheduleTable extends Migration
             $table->string('user_counter');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreignId('coach_id')->constrained();
-            $table->foreign('city_id')->references('id')->on('cities');
-            $table->foreign('coach_skill_id')->references('id')->on('coach_skills');
         });
     }
 
@@ -43,10 +39,6 @@ class CreateScheduleTable extends Migration
      */
     public function down()
     {
-        Schema::table('schedule', function (Blueprint $table) {
-            $table->dropForeign(['coach_id', 'city_id', 'coach_skill_id']);
-        });
-
         Schema::dropIfExists('schedule');
     }
 }

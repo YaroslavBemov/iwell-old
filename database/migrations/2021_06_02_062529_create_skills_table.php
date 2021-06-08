@@ -21,8 +21,6 @@ class CreateSkillsTable extends Migration
             $table->decimal('score_for_coach');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('type_id')->references('id')->on('skill_types');
         });
     }
 
@@ -33,10 +31,6 @@ class CreateSkillsTable extends Migration
      */
     public function down()
     {
-        Schema::table('skills', function (Blueprint $table) {
-           $table->dropForeign(['type_id']);
-        });
-
         Schema::dropIfExists('skills');
     }
 }

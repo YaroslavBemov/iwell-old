@@ -20,9 +20,6 @@ class CreateCoachSkillsTable extends Migration
             $table->string('status')->default('new');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('coach_id')->references('id')->on('coaches');
-            $table->foreign('skill_id')->references('id')->on('skills');
         });
     }
 
