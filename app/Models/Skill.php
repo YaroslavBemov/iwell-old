@@ -25,7 +25,16 @@ class Skill extends Model
         'deleted_at'
     ];
 
-    public function skillTypes() {
+    public function skillType() {
         return $this->belongsTo(SkillType::class);
+    }
+
+    public function coachSkills() {
+        return $this->hasMany(CoachSkill::class);
+    }
+
+    public function coaches() {
+        return $this->belongsToMany(Coach::class, 'coach_skills')
+            ->withPivot('status');
     }
 }

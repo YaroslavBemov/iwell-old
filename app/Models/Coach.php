@@ -27,10 +27,11 @@ class Coach extends Model
     ];
 
     public function skills() {
-        return $this->hasMany(Skill::class);
+        return $this->belongsToMany(Skill::class, 'coach_skills')
+            ->withPivot('status');
     }
 
-    public function users() {
+    public function user() {
         return $this->belongsTo(User::class);
     }
 }

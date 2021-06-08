@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Coach;
 use App\Models\CoachSkill;
+use App\Models\Skill;
 use Illuminate\Http\Request;
 
 class CoachSkillController extends Controller
@@ -22,7 +24,8 @@ class CoachSkillController extends Controller
      */
     public function index()
     {
-        // TODO coach skills, soft delete
+        $skill = Coach::find(1)->skills()->wherePivot('status', 'approved')->get();
+        return response($skill, 200);
     }
 
     /**

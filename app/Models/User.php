@@ -60,7 +60,11 @@ class User extends Authenticatable
         return $this->hasMany(Article::class);
     }
 
-    public function coaches() {
-        return $this->belongsTo(Coach::class);
+    public function coach() {
+        return $this->hasOne(Coach::class);
+    }
+
+    public function city() {
+        return $this->hasOne(City::class);
     }
 }
