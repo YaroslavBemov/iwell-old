@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, NavLink } from "react-router-dom";
 import CaptchaIcon from "../../assets/icons/CaptchaIcon";
 import UserIcon from "../../assets/icons/UserIcon";
+import Login from "../Login";
 import "./Registration.scss";
 
 const SpecialistRegistration = () => {
+    const [login, setLogin] = useState({ login: false });
+
+    const openLogin = () => setLogin({ ...login, login: true });
+    const closeLogin = () => setLogin({ ...login, login: false });
+
     const {
         register,
         handleSubmit,
@@ -164,8 +170,13 @@ const SpecialistRegistration = () => {
                 </p>
                 <p className="registration__txt mt-30">
                     У Вас уже есть аккаунт?
+                    <button className='registration__btn' onClick={openLogin}>Войти</button>
                 </p>
             </form>
+            <Login 
+                isOpened={login.login}
+                closeLogin={closeLogin}
+            />
         </div>
     );
 };

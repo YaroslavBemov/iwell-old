@@ -3,6 +3,7 @@
 .registration {
     background: #fff;
     padding: 50px;
+    grid-area: 2/1/2/3;
     &__nav-link {
         text-decoration: none;
         text-align: center;
@@ -83,7 +84,7 @@
         // -moz-appearance: none;
         width: 24px;
         height: 24px;
-        border: 1px solid #047A8A;
+        border: 1px solid #047a8a;
         box-sizing: border-box;
     }
     &__txt {
@@ -124,6 +125,16 @@
             text-decoration: none;
             text-align: center;
         }
+    }
+    &__btn {
+        border: none;
+        background: transparent;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: 0.44px;
+        color: $orange;
+        cursor: pointer;
     }
 }
 
