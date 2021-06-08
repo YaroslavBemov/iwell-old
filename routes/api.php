@@ -23,7 +23,11 @@ use \App\Http\Controllers\CoachSkillController;
 
 // API
 Route::group([
-    'middleware' => ['cors', 'json.response'
+    'middleware' => [
+        'cors',
+        'json.response',
+// rate limit, if need in future
+//        'throttle:60,1'
     ]], function () {
     // public routes
     Route::post('/signin', [ApiAuthController::class, 'signIn'])->name('login.api');
