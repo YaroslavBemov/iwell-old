@@ -16,5 +16,3 @@ yarn-error.log
 .rnd
 .DS_Store
 /stubs/
-_ide_helper.php
-_ide_helper_models.php
