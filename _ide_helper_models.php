@@ -41,9 +41,19 @@ namespace App\Models{
 /**
  * App\Models\City
  *
+ * @property int $id
+ * @property int $important
+ * @property string|null $title_ru
+ * @property string|null $area_ru
+ * @property string|null $region_ru
  * @method static \Illuminate\Database\Eloquent\Builder|City newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|City newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|City query()
+ * @method static \Illuminate\Database\Eloquent\Builder|City whereAreaRu($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|City whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|City whereImportant($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|City whereRegionRu($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|City whereTitleRu($value)
  */
 	class City extends \Eloquent {}
 }
@@ -52,6 +62,15 @@ namespace App\Models{
 /**
  * App\Models\Coach
  *
+ * @property int $id
+ * @property int $user_id
+ * @property string $achieve
+ * @property string $rank
+ * @property string $about
+ * @property string $score
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $deleted_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Skill[] $skills
  * @property-read int|null $skills_count
  * @property-read \App\Models\User $users
@@ -59,6 +78,15 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Coach newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Coach newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Coach query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Coach whereAbout($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Coach whereAchieve($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Coach whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Coach whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Coach whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Coach whereRank($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Coach whereScore($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Coach whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Coach whereUserId($value)
  */
 	class Coach extends \Eloquent {}
 }
@@ -67,12 +95,26 @@ namespace App\Models{
 /**
  * App\Models\CoachSkill
  *
+ * @property int $id
+ * @property int $coach_id
+ * @property int $skill_id
+ * @property string $status
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $deleted_at
  * @property-read \App\Models\Coach $coaches
  * @property-read \App\Models\Skill $skills
  * @method static \Database\Factories\CoachSkillFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|CoachSkill newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|CoachSkill newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|CoachSkill query()
+ * @method static \Illuminate\Database\Eloquent\Builder|CoachSkill whereCoachId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CoachSkill whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CoachSkill whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CoachSkill whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CoachSkill whereSkillId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CoachSkill whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CoachSkill whereUpdatedAt($value)
  */
 	class CoachSkill extends \Eloquent {}
 }
@@ -95,10 +137,26 @@ namespace App\Models{
 /**
  * App\Models\Skill
  *
+ * @property int $id
+ * @property string $title
+ * @property string $description
+ * @property int $type_id
+ * @property string $score_for_coach
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $deleted_at
  * @property-read \App\Models\SkillType $skillTypes
  * @method static \Illuminate\Database\Eloquent\Builder|Skill newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Skill newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Skill query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Skill whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Skill whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Skill whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Skill whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Skill whereScoreForCoach($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Skill whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Skill whereTypeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Skill whereUpdatedAt($value)
  */
 	class Skill extends \Eloquent {}
 }
@@ -107,11 +165,23 @@ namespace App\Models{
 /**
  * App\Models\SkillType
  *
+ * @property int $id
+ * @property string $title
+ * @property string $description
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $deleted_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Skill[] $skills
  * @property-read int|null $skills_count
  * @method static \Illuminate\Database\Eloquent\Builder|SkillType newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|SkillType newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|SkillType query()
+ * @method static \Illuminate\Database\Eloquent\Builder|SkillType whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SkillType whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SkillType whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SkillType whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SkillType whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SkillType whereUpdatedAt($value)
  */
 	class SkillType extends \Eloquent {}
 }
