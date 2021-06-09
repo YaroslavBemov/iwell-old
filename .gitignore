@@ -18,3 +18,6 @@ yarn-error.log
 /stubs/
 /_ide_helper.php
 /_ide_helper_models.php
+/public/vendor/telescope/
+/config/telescope.php
+/app/Providers/TelescopeServiceProvider.php
