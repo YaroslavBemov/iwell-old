@@ -15,7 +15,7 @@ class CoachSeeder extends Seeder
     public function run()
     {
         Coach::factory()
-            ->count(10)
+            ->count(100)
             ->create();
     }
 }

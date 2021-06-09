@@ -20,8 +20,18 @@ class SkillTypeSeeder extends Seeder
         ]);
 
         SkillType::create([
+            'title' => 'Food',
+            'description' => 'Food description'
+        ]);
+
+        SkillType::create([
             'title' => 'Look',
             'description' => 'Look description'
+        ]);
+
+        SkillType::create([
+            'title' => 'Psych',
+            'description' => 'Psych description'
         ]);
     }
 }
