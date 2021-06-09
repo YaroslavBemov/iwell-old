@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
              CoachSeeder::class,
              SkillTypeSeeder::class,
              SkillSeeder::class,
-             CoachSkillSeeder::class
+             CoachSkillSeeder::class,
+//             ScheduleSeeder::class
          ]);
     }
 }

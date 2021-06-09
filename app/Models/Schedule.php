@@ -21,9 +21,9 @@ class Schedule extends Model
         'duration',
         'status',
         'comment',
-        'accent',
-        'level',
-        'inventory'
+//        'accent',
+//        'level',
+//        'inventory'
     ];
 
     protected $hidden = [
