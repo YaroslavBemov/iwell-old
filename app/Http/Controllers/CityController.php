@@ -23,7 +23,10 @@ class CityController extends Controller
      */
     public function index()
     {
-        $cities = City::all();
+        // TODO REWORK
+        $cities = City::whereNotNull('region_ru')
+            ->select(['id', 'title_ru'])
+            ->get();
 
         return response($cities, 200);
     }
@@ -31,7 +34,7 @@ class CityController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -78,8 +81,8 @@ class CityController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\City  $city
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\City $city
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, City $city)
@@ -90,7 +93,7 @@ class CityController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\City  $city
+     * @param \App\Models\City $city
      * @return \Illuminate\Http\Response
      */
     public function destroy(City $city)
