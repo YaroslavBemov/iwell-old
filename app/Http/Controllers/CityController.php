@@ -19,7 +19,7 @@ class CityController extends Controller
      *      description="Get list of all cities",
      *     @OA\Parameter(
      *          name="starts",
-     *          description="First letters of city name, max 6 characters",
+     *          description="First letters of city name, min 2, max 6 characters",
      *          required=true,
      *          in="query",
      *      ),
@@ -32,7 +32,7 @@ class CityController extends Controller
     public function index(Request $request)
     {
         $validator = Validator::make($request->only('starts'), [
-            'starts' => 'string|max:6'
+            'starts' => 'string|min:2|max:6'
         ]);
 
         if ($validator->fails()) {
@@ -79,7 +79,7 @@ class CityController extends Controller
      *     @OA\Parameter(
      *          name="id",
      *          description="City id",
-     *          required=false,
+     *          required=true,
      *          in="path",
      *      ),
      *      @OA\Response(
