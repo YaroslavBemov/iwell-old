@@ -31,6 +31,7 @@ class UserFactory extends Factory
             'last_name' => $this->faker->lastName,
             'birthday' => $this->faker->date(),
             'gender' => $gender,
+            'trial' => $this->faker->randomElement(['available', 'inaccessible'])
         ];
     }
 

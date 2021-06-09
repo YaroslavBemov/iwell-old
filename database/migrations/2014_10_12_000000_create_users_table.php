@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('birthday');
             $table->string('gender');
             $table->string('avatar');
+            $table->string('trial');
             $table->unsignedSmallInteger('role_id')->default(0);
             $table->unsignedInteger('hometown_id');
             $table->timestamps();
