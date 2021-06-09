@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use function PHPUnit\Framework\isEmpty;
 
 class CityController extends Controller
 {
@@ -15,20 +17,45 @@ class CityController extends Controller
      *      tags={"city"},
      *      summary="Get all cities",
      *      description="Get list of all cities",
+     *     @OA\Parameter(
+     *          name="starts",
+     *          description="First letters of city name, max 6 characters",
+     *          required=true,
+     *          in="query",
+     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
      *       ),
      *     )
      */
-    public function index()
+    public function index(Request $request)
     {
-        // TODO REWORK
-        $cities = City::whereNotNull('region_ru')
-            ->select(['id', 'title_ru'])
-            ->get();
+        $validator = Validator::make($request->only('starts'), [
+            'starts' => 'string|max:6'
+        ]);
 
-        return response($cities, 200);
+        if ($validator->fails()) {
+            return response(['errors' => $validator->errors()->all()], 422);
+        }
+
+        $starts = $request->only('starts');
+
+        if (!empty($starts)) {
+            $starts = implode('', $request->only('starts'));
+            $cities = DB::table('cities')
+                ->where('title_ru', 'like', "$starts%")
+                ->get();
+
+            return response($cities, 200);
+        }
+
+// ~30MB
+//        $cities = DB::table('cities')
+//            ->select(['id', 'title_ru', 'region_ru'])
+//            ->get();
+
+        return response()->noContent();
     }
 
     /**

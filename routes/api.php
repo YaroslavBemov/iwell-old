@@ -34,7 +34,6 @@ Route::group([
     Route::post('/register/coach', [CoachController::class, 'register']);
 
     // City
-    // TODO REWORK
     Route::get('/cities', [CityController::class, 'index']);
     Route::get('/cities/{city}', [CityController::class, 'show']);
 
