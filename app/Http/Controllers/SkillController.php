@@ -22,7 +22,9 @@ class SkillController extends Controller
      */
     public function index()
     {
-        //
+        $skills = Skill::all();
+
+        return response($skills, 200);
     }
 
     /**
