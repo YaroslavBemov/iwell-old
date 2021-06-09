@@ -20,6 +20,7 @@ class Coach extends Model
     ];
 
     protected $hidden = [
+        'user_id',
         'score',
         'created_at',
         'updated_at',
@@ -33,5 +34,9 @@ class Coach extends Model
 
     public function user() {
         return $this->belongsTo(User::class);
+    }
+
+    public function coachSkills() {
+        return $this->hasMany(CoachSkill::class);
     }
 }

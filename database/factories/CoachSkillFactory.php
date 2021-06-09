@@ -26,6 +26,7 @@ class CoachSkillFactory extends Factory
         return [
             'coach_id' => Coach::all()->random()->id,
             'skill_id' => Skill::all()->random()->id,
+            'status' => $this->faker->randomElement(['new', 'approved', 'dismissed'])
         ];
     }
 }

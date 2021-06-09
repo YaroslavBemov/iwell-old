@@ -18,16 +18,19 @@ class CoachSkill extends Model
     ];
 
     protected $hidden = [
+        'coach_id',
+        'skill_id',
+        'status',
         'created_at',
         'updated_at',
         'deleted_at'
     ];
 
-    public function skills() {
+    public function skill() {
         return $this->belongsTo(Skill::class);
     }
 
-    public function coaches() {
+    public function coach() {
         return $this->belongsTo(Coach::class);
     }
 }

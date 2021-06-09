@@ -20,6 +20,8 @@ class Skill extends Model
     ];
 
     protected $hidden = [
+        'type_id',
+        'score_for_coach',
         'created_at',
         'updated_at',
         'deleted_at'
