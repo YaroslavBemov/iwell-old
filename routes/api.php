@@ -40,9 +40,11 @@ Route::group([
     // Skill
     Route::get('/skill-types', [SkillTypeController::class, 'index']);
     Route::get('/skills', [SkillController::class, 'index']);
+    Route::get('/skills/{skill}', [SkillController::class, 'show']);
 
     // Coach
     Route::get('/coach-skills', [CoachSkillController::class, 'index']);
+    Route::get('/coach-skills/{id}', [CoachSkillController::class, 'show']);
 
     // protected routes
     Route::group([

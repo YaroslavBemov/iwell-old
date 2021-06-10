@@ -12,7 +12,7 @@ class CoachSkillController extends Controller
     /**
      * @OA\Get(
      *      path="/api/coach-skills",
-     *      operationId="getCoachSkills",
+     *      operationId="getApprovedCoachSkills",
      *      tags={"coach"},
      *      summary="Get all approved coach skills",
      *      description="Get list of all approved Coach Skills",
@@ -43,15 +43,31 @@ class CoachSkillController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\CoachSkill $coachSkill
-     * @return \Illuminate\Http\Response
+     * @OA\Get(
+     *      path="/api/coach-skills/{id}",
+     *      operationId="getCoachSkills",
+     *      tags={"coach"},
+     *      summary="Get all approved coach skills by coach id",
+     *      description="Get list of all Coach Skills",
+     *     @OA\Parameter(
+     *          name="coachId",
+     *          description="Coach id",
+     *          required=true,
+     *          in="query",
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *     )
      */
-    public function show(CoachSkill $coachSkill)
+    public function show($id)
     {
-        //        $skill = Coach::find(9)->skills()->wherePivot('status', 'approved')->get();
-        //        return response($skill, 200);
+        //822, 848
+        $coach = Coach::find($id);
+        $skills = $coach->skills;
+
+        return response($skills, 200);
     }
 
     /**

@@ -29,7 +29,7 @@ class Coach extends Model
 
     public function skills() {
         return $this->belongsToMany(Skill::class, 'coach_skills')
-            ->withPivot('status');
+            ->withPivot(['status', 'skill_id']);
     }
 
     public function user() {

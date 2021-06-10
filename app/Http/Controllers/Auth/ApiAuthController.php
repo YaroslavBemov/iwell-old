@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\RegisterFormRequest;
+use App\Models\Coach;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+
 //TODO middleware с проверкой ключа приложения
 class ApiAuthController extends Controller
 {
@@ -126,12 +128,21 @@ class ApiAuthController extends Controller
             //TODO нужно ли проверять что у юзера есть активные токены?
             $token = auth()->user()->createToken('Laravel Password Grant Client')->accessToken;
             $user = auth()->user();
-
-            //TODO Is it bad way?
             $user->access_token = $token;
+
+            $coach = Coach::where('user_id', $user->id)->get();
+            if ($coach->count()) {
+                $response = array_merge(
+                    ['user' => $user],
+                    ['coach' => $coach]
+                );
+
+                return response($response, 200);
+            }
 
             return response($user, 200);
         } else {
+
             return response(['error' => 'Unauthorised'], 401);
         }
     }

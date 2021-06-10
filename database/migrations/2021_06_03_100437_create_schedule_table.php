@@ -19,7 +19,6 @@ class CreateScheduleTable extends Migration
             $table->unsignedBigInteger('coach_skill_id');
             $table->string('link_to_zoom');
             $table->string('begin');
-            $table->string('duration'); // where?
             $table->string('status')->default('new');
             $table->string('comment');
 //            $table->string('accent');

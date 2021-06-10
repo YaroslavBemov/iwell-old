@@ -39,14 +39,27 @@ class SkillController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Skill  $skill
-     * @return \Illuminate\Http\Response
+     * @OA\Get(
+     *      path="/api/skills/{id}",
+     *      operationId="getSkill",
+     *      tags={"coach"},
+     *      summary="Get skill by id",
+     *      description="Get skill",
+     *     @OA\Parameter(
+     *          name="skillId",
+     *          description="Skill id",
+     *          required=true,
+     *          in="query",
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *     )
      */
     public function show(Skill $skill)
     {
-        //
+        return response($skill, 200);
     }
 
     /**

@@ -19,6 +19,7 @@ class CreateSkillsTable extends Migration
             $table->string('description');
             $table->unsignedBigInteger('type_id');
             $table->decimal('score_for_coach');
+            $table->string('duration');
             $table->timestamps();
             $table->softDeletes();
         });
