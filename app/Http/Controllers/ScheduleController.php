@@ -7,6 +7,7 @@ use App\Models\CoachSkill;
 use App\Models\Schedule;
 use App\Models\Skill;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ScheduleController extends Controller
 {
@@ -33,14 +34,56 @@ class ScheduleController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @OA\Post(
+     *      path="/api/schedule",
+     *      operationId="createSchedule",
+     *      tags={"coach"},
+     *      summary="createSchedule",
+     *      description="return createSchedule info",
+     *     @OA\Parameter(
+     *          name="coach_skill_id",
+     *          description="coach_skill_id",
+     *          required=true,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="begin",
+     *          description="begin",
+     *          required=true,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="comment",
+     *          description="comment",
+     *          required=false,
+     *          in="query",
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *     )
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            // TODO validation before:1month
+            'coach_skill_id' => 'required|integer|exists:coach_skills,id',
+            'begin' => 'required|date|after:today|date_format:Y-m-d H:i',
+            'comment' => 'nullable|string|max:255'
+        ]);
+
+        if ($validator->fails()) {
+            return response(['errors' => $validator->errors()->all()], 422);
+        }
+
+        $schedule = Schedule::create($request->all(
+            'coach_skill_id',
+            'begin',
+            'comment'
+        ));
+
+        return response($schedule, 200);
     }
 
     /**

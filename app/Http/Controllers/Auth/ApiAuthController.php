@@ -130,7 +130,7 @@ class ApiAuthController extends Controller
             $user = auth()->user();
             $user->access_token = $token;
 
-            $coach = Coach::where('user_id', $user->id)->get();
+            $coach = Coach::where('user_id', $user->id)->with('coachSkills')->get();
             if ($coach->count()) {
                 $response = array_merge(
                     ['user' => $user],

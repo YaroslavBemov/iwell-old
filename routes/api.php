@@ -71,7 +71,7 @@ Route::group([
 
 
         // Coach
-
+        Route::post('/schedule', [ScheduleController::class, 'store']);
     });
 
 
