@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
              SkillTypeSeeder::class,
              SkillSeeder::class,
              CoachSkillSeeder::class,
-//             ScheduleSeeder::class
+             ScheduleSeeder::class
          ]);
     }
 }

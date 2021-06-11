@@ -8,6 +8,7 @@ use App\Http\Controllers\SkillTypeController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\CoachController;
 use App\Http\Controllers\CoachSkillController;
+use App\Http\Controllers\ScheduleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +45,11 @@ Route::group([
 
     // Coach
     Route::get('/coach-skills', [CoachSkillController::class, 'index']);
-    Route::get('/coach-skills/{id}', [CoachSkillController::class, 'show']);
+    Route::get('/coach-skills/{coach}', [CoachSkillController::class, 'show']);
+    Route::get('/schedule', [ScheduleController::class, 'index']);
+    Route::get('/schedule/{schedule}', [ScheduleController::class, 'show']);
+    Route::get('/schedule/coach/{coach}', [ScheduleController::class, 'showByCoach']);
+    Route::get('/schedule/skill/{skill}', [ScheduleController::class, 'showBySkill']);
 
     // protected routes
     Route::group([

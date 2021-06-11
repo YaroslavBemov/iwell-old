@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
     public function run()
     {
          User::factory()
-             ->count(1000)
+             ->count(100)
 //             ->hasArticles(2)
              ->create();
     }

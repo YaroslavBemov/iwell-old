@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\City;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -31,6 +32,7 @@ class UserFactory extends Factory
             'last_name' => $this->faker->lastName,
             'birthday' => $this->faker->date(),
             'gender' => $gender,
+            'hometown_id' => City::all()->random()->id,
             'trial' => $this->faker->randomElement(['available', 'inaccessible'])
         ];
     }

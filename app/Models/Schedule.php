@@ -13,13 +13,10 @@ class Schedule extends Model
     protected $table = 'schedule';
 
     protected $fillable =[
-        'coach_id',
-        'city_id',
+//        'city_id',
         'coach_skill_id',
         'link_to_zoom',
         'begin',
-        'duration',
-        'status',
         'comment',
 //        'accent',
 //        'level',
@@ -36,7 +33,7 @@ class Schedule extends Model
         return $this->belongsTo(City::class);
     }
 
-    public function coachSkills() {
+    public function coachSkill() {
         return $this->belongsTo(CoachSkill::class);
     }
 }

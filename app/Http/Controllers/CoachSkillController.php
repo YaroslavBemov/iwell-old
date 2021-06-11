@@ -61,10 +61,8 @@ class CoachSkillController extends Controller
      *       ),
      *     )
      */
-    public function show($id)
+    public function show(Coach $coach)
     {
-        //822, 848
-        $coach = Coach::find($id);
         $skills = $coach->skills;
 
         return response($skills, 200);

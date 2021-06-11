@@ -39,4 +39,8 @@ class Coach extends Model
     public function coachSkills() {
         return $this->hasMany(CoachSkill::class);
     }
+
+    public function schedule() {
+        return $this->hasManyThrough(Schedule::class, CoachSkill::class);
+    }
 }

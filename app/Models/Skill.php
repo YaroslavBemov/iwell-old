@@ -39,4 +39,8 @@ class Skill extends Model
         return $this->belongsToMany(Coach::class, 'coach_skills')
             ->withPivot('status');
     }
+
+    public function schedule() {
+        return $this->hasManyThrough(Schedule::class, CoachSkill::class);
+    }
 }

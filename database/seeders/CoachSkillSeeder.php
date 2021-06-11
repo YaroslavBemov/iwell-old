@@ -15,7 +15,7 @@ class CoachSkillSeeder extends Seeder
     public function run()
     {
         CoachSkill::factory()
-            ->count(42)
+            ->count(8)
             ->create();
     }
 }

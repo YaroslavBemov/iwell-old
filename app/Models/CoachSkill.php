@@ -26,11 +26,18 @@ class CoachSkill extends Model
         'deleted_at'
     ];
 
-    public function skill() {
+    public function skill()
+    {
         return $this->belongsTo(Skill::class);
     }
 
-    public function coach() {
+    public function coach()
+    {
         return $this->belongsTo(Coach::class);
+    }
+
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class);
     }
 }
