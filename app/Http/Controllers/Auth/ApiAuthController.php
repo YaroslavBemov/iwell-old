@@ -59,6 +59,12 @@ class ApiAuthController extends Controller
      *          required=false,
      *          in="query",
      *      ),
+     *     @OA\Parameter(
+     *          name="hometown_id",
+     *          description="User hometown_id",
+     *          required=false,
+     *          in="query",
+     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",

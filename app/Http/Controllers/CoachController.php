@@ -2,13 +2,136 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Api\RegisterFormRequest;
 use App\Models\Coach;
+use App\Models\CoachSkill;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class CoachController extends Controller
 {
+    /**
+     * @OA\Post(
+     *      path="/api/register/coach",
+     *      operationId="registerCoach",
+     *      tags={"coach"},
+     *      summary="Create new coach",
+     *      description="Create new coach and return details",
+     *     @OA\Parameter(
+     *          name="email",
+     *          description="Coach email",
+     *          required=true,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="password",
+     *          description="Coach password",
+     *          required=true,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="first_name",
+     *          description="Coach first_name",
+     *          required=true,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="last_name",
+     *          description="Coach last_name",
+     *          required=true,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="remember_token",
+     *          description="Coach remember_token",
+     *          required=false,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="birthday",
+     *          description="Coach birthday",
+     *          required=false,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="gender",
+     *          description="Coach gender",
+     *          required=false,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="hometown_id",
+     *          description="Coach hometown_id",
+     *          required=false,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="achieve",
+     *          description="Coach achieve",
+     *          required=false,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="rank",
+     *          description="Coach rank",
+     *          required=false,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="about",
+     *          description="Coach about",
+     *          required=false,
+     *          in="query",
+     *      ),
+     *     @OA\Parameter(
+     *          name="skill_id",
+     *          description="Coach skill_id",
+     *          required=true,
+     *          in="query",
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *     )
+     */
+    public function register(RegisterFormRequest $request)
+    {
+        $user = User::create(array_merge(
+            $request->only(
+                'email',
+                'remember_token',
+                'first_name',
+                'last_name',
+                'birthday',
+                'gender',
+                'avatar',
+                'hometown_id'
+            ),
+            ['password' => bcrypt($request->password)]
+        ));
+        $token = $user->createToken('Laravel Password Grant Client')->accessToken;
+        $user->access_token = $token;
+
+        $coach = Coach::create(array_merge(
+            $request->only(
+                'achieve',
+                'rank',
+                'about'
+            ),
+            ['user_id' => $user->id]
+        ));
+
+        $coachSkill = CoachSkill::create(array_merge(
+            $request->only('skill_id'),
+            ['coach_id' => $coach->id]
+        ));
+
+        $response = array_merge(array($user), array($coach), array($coachSkill));
+
+        return response($response, 200);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,32 +139,13 @@ class CoachController extends Controller
      */
     public function index()
     {
-        $user = auth()->user();
-
-        if($user->id) {
-            $coaches = Coach::where('deleted_at', 0)
-            ->orderBy('created_at', 'desc')
-            ->get();
-            return response($coaches, 200);
-        }
-        
-        return response(['errors' => errors()->all()], 422);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
         //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -52,21 +156,10 @@ class CoachController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param \App\Models\Coach $coach
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function show(Coach $coach)
     {
         //
     }
@@ -74,11 +167,11 @@ class CoachController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Coach $coach
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Coach $coach)
     {
         //
     }
@@ -86,10 +179,10 @@ class CoachController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param \App\Models\Coach $coach
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Coach $coach)
     {
         //
     }

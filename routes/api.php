@@ -4,7 +4,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Auth\ApiAuthController;
 use \App\Http\Controllers\ArticleController;
-use \App\Models\Citi;
+use \App\Http\Controllers\CityController;
+use \App\Http\Controllers\SkillTypeController;
+use \App\Http\Controllers\SkillController;
 use \App\Http\Controllers\CoachController;
 
 /*
@@ -25,10 +27,15 @@ Route::group([
     // public routes
     Route::post('/signin', [ApiAuthController::class, 'signIn'])->name('login.api');
     Route::post('/register', [ApiAuthController::class, 'register'])->name('register.api');
+    Route::post('/register/coach', [CoachController::class, 'register']);
 
-    // Citi
-    Route::get('/cities', [Citi::class, 'index']);
-    Route::get('/cities/{id}', [Citi::class, 'show']);
+    // City
+    Route::get('/cities', [CityController::class, 'index']);
+    Route::get('/cities/{city}', [CityController::class, 'show']);
+
+    // Skill
+    Route::get('/skill-types', [SkillTypeController::class, 'index']);
+    Route::get('/skills', [SkillController::class, 'index']);
 
     // protected routes
     Route::group([
@@ -48,9 +55,9 @@ Route::group([
             Route::delete('/{id}', [ArticleController::class, 'destroy'])->name('destroy');
         });
 
+
         // Coach
-        Route::resources(['coaches' => CoachController::class]);
-        
+
     });
 
 

@@ -31,9 +31,12 @@ class RegisterFormRequest extends FormRequest
             'last_name' => ['required', 'string', 'max:255'],
             'birthday' => ['nullable', 'date_format:Y-m-d'],
             'gender' => ['nullable', 'in:male,female'],
-            'avatar' => ['nullable', 'image', 'max:50', 'dimensions:min_width=100,max_width=200,min_height=100,max_height=200'],
-//            TODO turn on cities
-//            'hometown_id' => ['required', 'exists:cities'],
+            'avatar' => ['nullable', 'image', 'max:50', 'dimensions:min_width=100,max_width=200,min_height=100,min_height=200'],
+            'hometown_id' => ['nullable', 'exists:cities,id'],
+            'achieve' => ['nullable', 'string', 'max:255'],
+            'rank' => ['nullable', 'string', 'max:255'],
+            'about' => ['nullable', 'string', 'max:255'],
+            'skill_id' => ['nullable', 'exists:skills,id'],
         ];
     }
 }
